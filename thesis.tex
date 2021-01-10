@@ -1,0 +1,54 @@
+%%%%%%%%%%%%%%%%%%% DOCUMENTCLASS BEGIN %%%%%%%%%%%%%%%%%%%
+% [onluarkali,tekyonlu],[turkce,ingilizce],[yukseklisans,doktora],
+% [bez,karton],[bilisim,fenbilimleri,sosyalbilimler,avrasya,enerji]
+% Sample use: \documentclass[onluarkali,ingilizce,yukseklisans,
+% karton,fenbilimleri]{itutez}
+% Other sample use: \documentclass[tekyonlu,ingilizce,
+% yukseklisans,bez,bilisim]{itutez}
+% onluarkali: twoside
+% tekyonlu: oneside
+% turkce: turkish
+% ingilizce: english
+% yukseklisans: masters
+% doktora: phd
+% bez: hardcover version
+% karton: paperback version
+% bilisim: informatics
+% fenbilimleri: science and technology
+% sosyalbilimler: social sciences
+% avrasya: eurasia
+% enerji: energy
+\documentclass[onluarkali,ingilizce,yukseklisans,bez,fenbilimleri]{thesis}
+%%%%%%%%%%%%%%%%%%% DOCUMENTCLASS END %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% TR SETTINGS BEGIN %%%%%%%%%%%%%%%%%%%
+%\usepackage[turkish]{babel} % türkçe
+%\usepackage[latin5]{inputenc} % latin harfi
+%\usepackage[T1]{fontenc} % türkçe heceleme
+%\usepackage{fancyhdr}
+%%%%%%%%%%%%%%%%%%% TR SETTINGS END %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% PACKAGES & DEFINITIONS BEGIN %%%%%%%%%%%%%%%%%%%
+\input{config.tex}
+\kisaltmalistesi{\input{abbreviations.tex}}
+\sembollistesi{\input{symbols.tex}}
+\onsoz{\input{preface.tex}}
+\ozet{\input{ozet.tex}}
+\summary{\input{summary.tex}}
+\ozgecmis{\input{resume.tex}}
+%%%%%%%%%%%%%%%%%%% PACKAGES & DEFINITIONS END %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% DOCUMENT BEGIN %%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%% CHAPTERS BEGIN %%%%%%%%%%%%%%%%%%%
+\input{chapters/ch1.tex}
+\input{chapters/ch2.tex}
+\input{chapters/ch3.tex}
+\input{chapters/ch4.tex}
+\input{chapters/ch5.tex}
+\input{chapters/ch6.tex}
+%%%%%%%%%%%%%%%%%%% CHAPTERS END %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% REFERENCES BEGIN %%%%%%%%%%%%%%%%%%%
+\bibliographystyle{IEEEtran}
+% \addbibresource{references.bib}
+\bibliography{references.bib}
+%%%%%%%%%%%%%%%%%%% REFERENCES END %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% DOCUMENT END %%%%%%%%%%%%%%%%%%%
+\end{document}
