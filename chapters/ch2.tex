@@ -95,15 +95,24 @@ In the Voting part, an algorithm is used in which every pixel in the patch is in
 
 \section{Diffusion-based Methods}
 
-This method basically fills missing regions or unwanted objects in an image by diffusing neighboring pixel information. Diffusion process uses partial differential equations. Inpainting is not the only use of such diffusion-based methods. In addition, these type of methods are available in areas like image compression. Diffusion-based image inpainting can be used to remove undesirable objects in an image or to repair damaged parts of it. However, as a downside, these methods can leave artifacts after inpainting process such as local variance difference and noise pattern \cite{diffusion_based_artifacts}.
+This method basically fills missing regions or unwanted objects in an image by diffusing neighboring pixel information. Diffusion process uses partial differential equations. Inpainting is not the only use of such diffusion-based methods. In addition, these type of methods are available in areas like image compression. Diffusion-based image inpainting can be used to remove undesirable objects in an image or to repair damaged parts of it. However, as a downside, these methods can leave artifacts after inpainting process such as local variance difference and noise pattern \cite{diffusion_based_artifacts}. In figure \ref{fig:diffusion_based_inpainting} an example of diffusion-based inpainting can be seen. The black region in \ref{fig:diffusion_based_inpainting}.a is the unknown region and the \ref{fig:diffusion_based_inpainting}.b shows the inpainting result, the region surrounded by the dashed curve is recovered by inpainting.
 
-Basically, the inpainting process is nothing more than restoring the missing pixel information in an image and there are some common assumptions that most of the images have commonly share. In this way of thinking, Navier-Stokes method \cite{navier_stokes} was introduced. This method emerged by combining ideas in the field of classical fluid dynamics with the help of partial equations and remains one of the most popular traditional methods to this day. The assumption that the edges in an image are contunious is used. The authors designed this inpainting method by considering the color information of the surrounding pixels and the this continuity constraint.
+Basically, the inpainting process is nothing more than restoring the missing pixel information in an image and there are some common assumptions that most of the images have commonly share. In this way of thinking, Navier-Stokes method \cite{navier_stokes} was introduced. Navier-Stokes equations known in the area of mechanics, especially fluid mechanics. This inpainting method emerged by combining ideas in the field of classical fluid dynamics with the help of partial equations and remains one of the most popular traditional methods to this day. The assumption that the edges in an image are contunious is used. The authors designed this inpainting method by considering the color information of the surrounding pixels and the this continuity constraint.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=14cm]{figures/diffusion_based_inpainting.png}
+    \caption{Diffusion-based inpainting example \cite{diffusion_based_inpainting}}
+    \label{fig:diffusion_based_inpainting}
+\end{figure}
 
 Another traditional inpainting study based on fast marching method \cite{telea} proposed that, in order to estimate the color of the missing pixels, gradients of the neighbor regions can be used. In our work, these two methods used as a baseline when comparing the deep learning based inpainting methods with traditional inpainting methods.
 
-\subsection{Navier-Strokes Method}
+\subsection{Navier-Stokes Method}
 
-Enes yazacak.
+Navier-Strokes equations are partial differential equations for describing the motion of fluid substances. These equations used in variety of areas in different industries such as modeling ocean currents, weather conditions and even when designing aircrafts and cars. However, there is no proof for solutions exist, and are they unique?These revolutionary equations In 2000, the Clay Mathematics Institude made this problem one of the seven millennium prize problems \cite{clay} offering a one million dollar prize to the first person providing a solution.
+
+
 
 \subsection{Fast Marching Method}
 
