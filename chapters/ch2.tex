@@ -97,7 +97,7 @@ In the Voting part, an algorithm is used in which every pixel in the patch is in
 
 This method basically fills missing regions or unwanted objects in an image by diffusing neighboring pixel information. Diffusion process uses partial differential equations. Inpainting is not the only use of such diffusion-based methods. In addition, these type of methods are available in areas like image compression. Diffusion-based image inpainting can be used to remove undesirable objects in an image or to repair damaged parts of it. However, as a downside, these methods can leave artifacts after inpainting process such as local variance difference and noise pattern \cite{diffusion_based_artifacts}. In figure \ref{fig:diffusion_based_inpainting} an example of diffusion-based inpainting can be seen. The black region in \ref{fig:diffusion_based_inpainting}.a is the unknown region and the \ref{fig:diffusion_based_inpainting}.b shows the inpainting result, the region surrounded by the dashed curve is recovered by inpainting.
 
-Basically, the inpainting process is nothing more than restoring the missing pixel information in an image and there are some common assumptions that most of the images have commonly share. In this way of thinking, Navier-Stokes method \cite{navier_stokes} was introduced. Navier-Stokes equations known in the area of mechanics, especially fluid mechanics. This inpainting method emerged by combining ideas in the field of classical fluid dynamics with the help of partial equations and remains one of the most popular traditional methods to this day. The assumption that the edges in an image are contunious is used. The authors designed this inpainting method by considering the color information of the surrounding pixels and the this continuity constraint.
+Basically, the inpainting process is nothing more than restoring the missing pixel information in an image and there are some common assumptions that most of the images have commonly share. In this way of thinking, Navier-Stokes based method \cite{navier_stokes} was introduced. Navier-Stokes equations known in the area of mechanics, especially fluid mechanics. This inpainting method emerged by combining ideas in the field of classical fluid dynamics with the help of partial equations and remains one of the most popular traditional methods to this day. The assumption that the edges in an image are contunious is used. The authors designed this inpainting method by considering the color information of the surrounding pixels and the this continuity constraint.
 
 \begin{figure}[h]
     \centering
@@ -110,15 +110,22 @@ Another traditional inpainting study based on fast marching method \cite{telea} 
 
 \subsection{Navier-Stokes Method}
 
-Navier-Strokes equations are partial differential equations for describing the motion of fluid substances. These equations used in variety of areas in different industries such as modeling ocean currents, weather conditions and even when designing aircrafts and cars. However, there is no proof for solutions exist, and are they unique?These revolutionary equations In 2000, the Clay Mathematics Institude made this problem one of the seven millennium prize problems \cite{clay} offering a one million dollar prize to the first person providing a solution.
+Navier-Strokes equations are partial differential equations for describing the motion of fluid substances. These equations used in variety of areas in different industries such as modeling ocean currents, weather conditions and even when designing aircrafts and cars.
 
-In this method, the stream function formulation used in fluid mechanics has been made suitable for the inpainting process. The counterpart to the vorticity-stream function for inpainting transform into equation \ref{eq:navier_stokes} which corresponds to the solution of the intensity value of a pixel. Similarly, the fluid velocity in fluid dynamics corresponds to the gradient of the intensity values also interpereted as isophote direction, vortocity corresponds to smoothness and viscosity corresponds to diffusion respectively in this problem.
+\begin{equation}
+    \omega_{t} + \upsilon \cdot \nabla \omega = \nu \nabla \cdot \left ( g \left ( \left | \nabla \omega \right | \right ) \nabla \omega \right)
+    \label{eq:navier_stokes}
+\end{equation}
+
+In this method \cite{navier_stokes}, the stream function formulation used in fluid mechanics has been made suitable for the inpainting process. The counterpart to the vorticity-stream function for inpainting transform into equation \ref{eq:navier_stokes} which corresponds to the solution of the intensity value of a pixel. \cite{navier_stokes_inpainting} Similarly, the fluid velocity in fluid dynamics corresponds to the gradient of the intensity values also interpereted as isophote direction, vortocity corresponds to smoothness and viscosity corresponds to diffusion respectively in this problem.
+
+The algorithm used in this study proceeds by following the edges in the picture from the known region to the unknown region. Since it is assumed that the edges will be continous during this progress, isophote lines are preserved. Isophote means the lines created by pixels with the same intensity value. During this process, the direction of the gradient vector in the boundaries preserved. After the isophotes are obtained, color information is calculated to reduce the minimum variance and by filling in the unknown pixels, the inpainting process is completed.
 
 \subsection{Fast Marching Method}
 
-Enes yazacak.
+In this study published in 2004 \cite{telea}, Ahmet developed an inpainting technique based on the fast marching method. A filling process is designed starting from the boundary pixels of a region where the pixel information is missing and going step by step towards the inside. It takes a small neighborhood of pixels to calculate the unknown pixel value as the weighted sum of known pixels inside that boundary. For this weighted summation process, the weights selected according to the proximity and boundary normal. After all the pixels are calculated in each step, the next closest pixel is passed with the fast marching method and the same process is repeated again until everything inside the region is inpainted.
 
-In figure \ref{fig:traditional_comparison}, comparison of the Navier-Stokes and Fast Marching approaches can bee seen. White areas in \ref{fig:traditional_comparison}.a are the missing areas.
+In figure \ref{fig:traditional_comparison}, comparison of the Navier-Stokes and Fast Marching approaches can bee seen. White colored pixels in \ref{fig:traditional_comparison}.a are the missing areas and \ref{fig:traditional_comparison}.d is the original image. In \ref{fig:traditional_comparison}.b, output of the Navier-Stokes method and in \ref{fig:traditional_comparison}.c, output of the Fast Marching method shown respectively.
 
 \begin{figure}[h]
     \centering
