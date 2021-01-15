@@ -6,6 +6,7 @@ Machine learning methods, which have been used frequently in many different prob
 
 It would be more accurate to examine traditional methods mainly as exemplar-based and diffusion based. Although Exemplar-based methods are divided into pixel-based and patch-based, patch-based methods will be examined mainly in exemplar-based methods, since there are more studies relating to patch-based methods and they give better results.
 
+%%  BURDA FARKLI TRADITIONAL YONTEMLERE REFERANS YAPILABILIR
 As can be understood from their names, patch-based methods try to fill the missing region in the picture with the information obtained from different parts of the picture. [References to different papers can be found here.]. Diffusion-based methods [1 2 sentence definition by Enes]
 
 Traditional methods are methods that do not require training. For this reason, it is an appropriate method to use for simpler problems. Traditional methods do not work well in problems where the masked area in the picture starts to form a proportionally large area. This result is quite normal given that these methods infer from pixels near the missing region.
@@ -14,83 +15,94 @@ Traditional methods are methods that do not require training. For this reason, i
 
 Patch-based image inpainting consists of methods that use the undamaged regions in the image to create the region to be filled. With this approach it is aimed to have the highest possible patch similarity level.
 
-In order to implement this method, an algorithm is needed on how to transfer the obtained regions to the areas planned to be filled. Another important point in this method is the selection of the algorithm that will compare the regions in different parts of the picture with the regions desired to be created [PatchMatch Ref].
+In order to implement this method, an algorithm is needed on how to transfer the obtained regions to the areas planned to be filled. Another important point in this method is the selection of the algorithm that will compare the regions in different parts of the picture with the regions desired to be created \cite{patchmatch}.
 
 While patch-based methods work well, they assume that the information in the missing part of the picture resides elsewhere in the picture. Another problem with patch-based methods is that they require relatively more processing power because they are methods that consistently involve searching and comparing.
 
 \subsection{Patch-based Texture Synthesis}
 
-In this method by Zhou et al [Ref], it is aimed to fill the desired area by creating textures with patch-based algorithms for Image inpainting method. While implementing this targeted method, a road starting from the rough, proceeding in detail is aimed. While performing the filling process, targets and constraints were created in order to ensure the integrity of the newly created region with the rest of the picture.
+In this method by Zhou et al \cite{patch_based_tex_synthesis}, it is aimed to fill the desired area by creating textures with patch-based algorithms for Image inpainting method. While implementing this targeted method, a road starting from the rough, proceeding in detail is aimed. While performing the filling process, targets and constraints were created in order to ensure the integrity of the newly created region with the rest of the picture.
 
 In this study, a more efficient inpainting study has been achieved by basically using the successive elimination algorithm and based on the previously used methods.
 
 Texture synthesis is performed by trying to imitate information about texture and structure integrity. At the same time, it is aimed to reduce the processing power used by using the successive elimination algorithm during texture comparison.
 
-In this approach, the function given in equation [] is tried to be minimized in order to achieve the desired result.
+In this approach, the function given in equation \ref{eqn:textsynth} is tried to be minimized in order to achieve the desired result.
 
 \begin{equation}
-    buraya equation gelecek
+    \label{eqn:textsynth}
+    I_t = \frac{1}{k_p} \displaystyle\sum\limits_{q\epsilon\Omega} {I_qf(|p-q|).g(|I_p-I_q|)}
 \end{equation}
 
-However, minimizing this equation does not mean that the energy function decreases in general. To explain better, the region to be filled in the image can be completely filled with a smaller patch than itself and gives a perfect result in the equation. However, for better results, coarse images as  are used in equation [] and equation [].
+However, minimizing this equation does not mean that the energy function decreases in general. To explain better, the region to be filled in the image can be completely filled with a smaller patch than itself and gives a perfect result in the equation. However, for better results, coarse images as  are used in equation \ref{eqn:textsynth2} and equation \ref{eqn:textsynth3}.
 
 \begin{equation}
-    buraya equation gelecek
+    \label{eqn:textsynth2}
+    \lambda(x,y)(\mu_1-\mu_0)=\mu\Delta^2\mu1, where \frac{\partial\mu_1}{\partial n}
+\end{equation}
+
+\begin{equation}
+    \label{eqn:textsynth3}
+    \lambda(x,y)(\mu_2-\mu_0)=\mu\Delta^2\mu2, where \frac{\partial\mu_2}{\partial n}
 \end{equation}
 
 In this way, the image inpainting process for the visual is corrected to give a good result from the rough approach. However, this process requires a high processing power due to 3 different partial differential equations.
 
-It is logical to use an approach to solve this problem. With this approach, uniform visual densities can be accepted as constant for different regions. Hence, MS energy function can be reduced to equation []. Also, an inpainted image example with its input image is given in figure [].
+It is logical to use an approach to solve this problem. With this approach, uniform visual densities can be accepted as constant for different regions. Hence, MS energy function can be reduced to equation \ref{eqn:textsynth4}. Also, an inpainted image example with its input image is given in figure \ref{fig:patch-based-example}.
 
 \begin{equation}
-    buraya equation gelecek
+    \label{eqn:textsynth4}
+    E(c_k, C) = \sum\limits_{k}\int\limits_{\Omega_k}\lambda(x,y){(c_k,\mu_0)}^2dxy+V|C|
 \end{equation}
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
+    \includegraphics{figures/chapter2/Patch-Based-texture-synth-example.png}
     \caption{Inpainted Image with Patch Based Texture Synthesis}
-    \label{fig:my_label}
+    \label{fig:patch-based-example}
 \end{figure}
 
 \subsection{Image Melding}
 
-The image melting method [Ref] creates a transition zone to transfer various information and properties within one image to another image. This method can be used for different purposes depending on the usage type.
+The image melting method \cite{imagemelding} creates a transition zone to transfer various information and properties within one image to another image. This method can be used for different purposes depending on the usage type.
 
-This method, primarily uses many different transforms to increase the ability to search for patches. Next, image gradients are included in patch representation and Poisson equation solver is used for color averaging. Without causing blurry areas in the picture, a new energy method is used based on L2/L0 norms for colors. Melding of 2 different image is illustrated below in figure [].
+This method, primarily uses many different transforms to increase the ability to search for patches. Next, image gradients are included in patch representation and Poisson equation solver is used for color averaging. Without causing blurry areas in the picture, a new energy method is used based on \(L_2/L_0\) norms for colors. Melding of 2 different image is illustrated below in figure \ref{fig:image-melding-example}.
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
+    \includegraphics{figures/chapter2/Image-Melding.png}
     \caption{Image Melding Example}
-    \label{fig:my_label}
+    \label{fig:image-melding-example}
 \end{figure}
 
 Many different patch-based methods have been used for inpainting problems. Image melding is basically a patch-based algorithm. However, when based-patched methods are given inconsistent visuals, they can give insufficient results because they use a direct distance function between pixels.
 
 Another result aimed with this study is that patch-based and gradient methods can be used together and thus more complex problems can be solved. Thanks to the methods used, Image Melding can be used to solve many different problems including inpainting.
 
-Image synthesis using a single source is one of the ways image melding can be used. In this algorithm, a mask divides the image into two parts, S and T, respectively, as source and target. After this process, the energy function shown in equation [] is obtained.
+Image synthesis using a single source is one of the ways image melding can be used. In this algorithm, a mask divides the image into two parts, S and T, respectively, as source and target. After this process, the energy function shown in equation \ref{eqn:imagemelding1} is obtained.
 
 \begin{equation}
-    buraya equation gelecek
+    \label{eqn:imagemelding1}
+    E(T,S) = \sum\limits_{q\subset T}{min_{p\subset S}(D(Q,P)+\lambda D(\Delta Q, \Delta P))}
 \end{equation}
 
-In the above equation Q represents the targeted patch with w width and height and target pixel q on the upper left corner. P represents the transformation that is applied to the neighbor pixels of the source pixel. Throughout the operations, all patches have 5 channels, which 3 of them are RGB and 2 channels are gradient channels. In the equation [], RGB channels are shown with Q and P, gradient channels are shown with  Distances for all channels are expressed with D and,  weight the gradient channels in according to RGB channels.
+In the above equation Q represents the targeted patch with w width and height and target pixel q on the upper left corner. P represents the transformation that is applied to the neighbor pixels of the source pixel. Throughout the operations, all patches have 5 channels, which 3 of them are RGB and 2 channels are gradient channels. In the equation \ref{eqn:imagemelding1}, RGB channels are shown with Q and P, gradient channels are shown with \(\Delta Q \Delta P \)Distances for all channels are expressed with D and,  weight the gradient channels in according to RGB channels.
 
-Two important steps during the implementation of the algorithm are searching and voting. For the search part, the PatchMatch [ref] algorithm is properly used. With using this algorithm, patches with sufficient proximity are detected for the target patch. Translation, rotation and scaling are used freely during this process. At the same time, ranges are defined on the channels in order to obtain better results.
+Two important steps during the implementation of the algorithm are searching and voting. For the search part, the PatchMatch algorithm is properly used. With using this algorithm, patches with sufficient proximity are detected for the target patch. Translation, rotation and scaling are used freely during this process. At the same time, ranges are defined on the channels in order to obtain better results.
 
-In the Voting part, an algorithm is used in which every pixel in the patch is included, and the resulting output takes its form in eq []. In figure [], Inpainting example with image melding method is given.
+In the Voting part, an algorithm is used in which every pixel in the patch is included, and the resulting output takes its form in eq \ref{eqn:imagemelding2}. In figure \ref{fig:inpainting-image-melding}, Inpainting example with image melding method is given.
 
 \begin{equation}
-    buraya equation gelecek
+    \label{eqn:imagemelding2}
+    T= argmin(D(I,\bar{T}+\lambda D(\Delta I,\Delta \bar{T}))
+    %sYanlislik olabilir mi kontrol et bir ara
 \end{equation}
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
+    \includegraphics{figures/chapter2/ImageMeldingExample.png}
     \caption{Inpaingting Example with Image Melding}
-    \label{fig:my_label}
+    \label{fig:inpainting-image-melding}
 \end{figure}
 
 \section{Diffusion-based Methods}
@@ -101,7 +113,7 @@ Basically, the inpainting process is nothing more than restoring the missing pix
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=14cm]{figures/diffusion_based_inpainting.png}
+    \includegraphics[width=14cm]{figures/chapter2/diffusion_based_inpainting.png}
     \caption{Diffusion-based inpainting example \cite{diffusion_based_inpainting}}
     \label{fig:diffusion_based_inpainting}
 \end{figure}
@@ -129,7 +141,7 @@ In figure \ref{fig:traditional_comparison}, comparison of the Navier-Stokes and 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=14cm]{figures/traditional_comparison.png}
+    \includegraphics[width=14cm]{figures/chapter2/traditional_comparison.png}
     \caption{Comparison of Navier-Stokes and Fast Marching methods}
     \label{fig:traditional_comparison}
 \end{figure}
