@@ -9,45 +9,45 @@ Convolutional neural network structures, which are known to be very successful i
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
-    \caption{U-Net Architecture}
-    \label{fig:my_label}
+    \includegraphics[width=10cm]{figures/chapter4/unet.png}
+    \caption{U-Net Architecture \cite{unet}}
+    \label{fig:u-net}
 \end{figure}
 
-The U-Net [24] architecture used in Shift-Net inpainting [23] is one of them. This architecture takes an image and a mask which shows the missing areas and put them into convolutio layers. It concatenate the output of each layer with the corresponding layer of the same size in symmetrical architecture. The results of this structure achieve excellent success in terms of genereted image structure and fine detail.
+The U-Net \cite{unet} architecture used in Shift-Net inpainting study \cite{shiftNet} is one of them. The U-Net CNN architecture is shown in figure \ref{fig:u-net}  This architecture takes an image and a mask which shows the missing areas and put them into convolutional layers. It concatenate the output of each layer with the corresponding layer of the same size in symmetrical architecture. The results of this structure achieve excellent success in terms of genereted image structure and fine detail. The architecture of the Shift-Net which is a U-Net with special shift-connections can be seen in figure \ref{fig:shiftNet}
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
-    \caption{Shift-Net Architecture}
-    \label{fig:my_label}
+    \includegraphics[width=13cm]{figures/chapter4/shiftnet.png}
+    \caption{Shift-Net Architecture \cite{shiftNet}}
+    \label{fig:shiftNet}
 \end{figure}
 
-Another popular architecture used in inpainting studies is the encoder-decoder network. Sidorov and Hardeberg [5] uses a 3D CNN encoder-decoder network architecture and can perform not only inpainting but also tasks such as denoising and super-resolution. In the study of Liu et al. [6] coherent semantic attention layer designed and used in an encoder-decoder structure called refinement network. This architecture can be seen in figure 6.
+Another popular architecture used in inpainting studies is the encoder-decoder network. Sidorov and Hardeberg \cite{3DCNN} uses a 3D CNN encoder-decoder network architecture and can perform not only inpainting but also tasks such as denoising and super-resolution. In the study of Liu et al. \cite{csa_layer} coherent semantic attention layer designed and used in an encoder-decoder structure called refinement network. This architecture can be seen in figure \ref{fig:csa_layer}.
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
-    \caption{CSA layer at the resolution of 32×32 in refinement network}
-    \label{fig:my_label}
+    \includegraphics[width=14cm]{figures/chapter4/csa_layer.png}
+    \caption{CSA layer at the resolution of 32×32 in refinement network \cite{csa_layer}}
+    \label{fig:csa_layer}
 \end{figure}
 
-In Artist-Net [7] proposed by Liao et al. In order to achive inpainting, two different content encoders, a style encoder used with a joint decoder. A similar structure is also available in CNN architecture developed by Cai et al. [1] for the purpose of semantic object removal. There are also context encoder [2] architectures used in inpainting studies. These context encoders basically CNNs trying to generate the missing parts of an image from their surroundings.
+In Artist-Net \cite{artistNet} proposed by Liao et al. In order to achive inpainting, two different content encoders, a style encoder used with a joint decoder. Artist-Net architecture can be seen in figure \ref{fig:artistNet}. A similar structure is also available in CNN architecture developed by Cai et al. \cite{semantic_object_removal} for the purpose of semantic object removal. There are also context encoder \cite{context_encoders} architectures used in inpainting studies. These context encoders basically CNNs trying to generate the missing parts of an image from their surroundings.
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
-    \caption{Artist-Net Architecure}
-    \label{fig:my_label}
+    \includegraphics[width=14cm]{figures/chapter4/artist.png}
+    \caption{Artist-Net Architecture \cite{artistNet}}
+    \label{fig:artistNet}
 \end{figure}
 
-Zeng et al. [3] used Pyramid-context encoder network to perform inpainting. This pyramidal arthitecture called PEN-Net performs a high quality inpainting operation. The network structure can be seen in figure. Nakamura et al. [25] Aimed to remove the text from images and achieved excellent results using CNN.
+Zeng et al. \cite{pyramid_network} used Pyramid-context encoder network to perform inpainting. This pyramidal arthitecture called PEN-Net performs a high quality inpainting operation. The network structure can be seen in figure \ref{fig:pennet}. Nakamura et al. \cite{nakamura} Aimed to remove the text from images and achieved excellent results using CNN.
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
-    \caption{The Pyramid-context Encoder Network (PEN-Net)}
-    \label{fig:my_label}
+    \includegraphics[width=14cm]{figures/chapter4/pyramid.png}
+    \caption{The Pyramid-context Encoder Network (PEN-Net) \cite{pyramid_network}}
+    \label{fig:pennet}
 \end{figure}
 
 \section{GAN-based Methods}
@@ -237,107 +237,116 @@ Where \(s_{x,y,x^{'},y^{'}}\) is patch similarity between background and foregro
 
 \subsection{Image Inpainting via Generative Multi-column CNN}
 
-In the article [ref:gmcnn], the inpainting process is presented with a multi column CNN structure. This network acquires different image features in parallel. A new reconstructon loss function has been developed to better characterize global objects. Also, a loss function called ID-MRF loss has been developed to increase the local details and improve the texture quality. With these loss functions and a adversarial loss, the model trained on the image dataset can fill the masked pixels in an image with local and global information. Trained model of this architecture shows realistic results without even the need for post-processing, which is often seen on similar works.
+In the article \cite{inpainting_via_multi_cnn}, the inpainting process is presented with a multi column CNN structure. This network acquires different image features in parallel. A new reconstructon loss function has been developed to better characterize global objects. Also, a loss function called ID-MRF loss has been developed to increase the local details and improve the texture quality. With these loss functions and a adversarial loss, the model trained on the image dataset can fill the masked pixels in an image with local and global information. Trained model of this architecture shows realistic results without even the need for post-processing, which is often seen on similar works.
 
-This inpainting system has a structure that can be trained from begining to end. It first receives an image and a binary mask as input. The pixels to be masked are denoted by 1 and known pixels by 0. Then the image masked by the  operation and inserted into the network. The result of the network is a completed image. Network structure is as shown in the figure 3.5.1.
+This inpainting system has a structure that can be trained from begining to end. It first receives an image and a binary mask as input. The pixels to be masked are denoted by 1 and known pixels by 0. Then the image masked by the  operation and inserted into the network. The result of the network is a completed image. Network structure is as shown in the figure \ref{fig:gmcnn}.
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
-    \caption{Network structure of the GMCNN}
-    \label{fig:my_label}
+    \includegraphics[width=14cm]{figures/chapter4/gmcnn.png}
+    \caption{Network structure of the GMCNN \cite{inpainting_via_multi_cnn}}
+    \label{fig:gmcnn}
 \end{figure}
 
-The network structure shown in figure 3.5.1 consists of three sub-networks. The first one is the generator network that creates the output painted image and is the main network which will used after the training phase.The other two sub-networks are networks that are only needed during the training phase respectively, local and global discriminator networks which used to calculate the adversarial loss and a pre-trained VGG network [ref:simonyan] in order to calculate the designed ID-MRF loss. Generator network consists of n parallel encoder-decoder branches (in figure 3.5.1, n = 3). These structures consist of convolution layers that apply filters of different kernel sizes to the input tensor. These convolution layers obtain features at different frequency levels according to the kernel size. Next, these branches which have different levels of information about input image upsampled bilinearly to the original image size. Then these same size branches combined together and forms a feature map. Continued with two more convolution layers, this feature map is transformed into the image. This image is the generated output image of the network and it is used to calculate the network loss when compared to the ground truth image. Even though these branches seem to be independent from each other, they are actually affected by the backpropagation phase in the training process. This framework is different from the commonly used encoder-decoder structures. In an encoder-decoder network, every layer inherits its information from its previous layer. However, in this architecture, different structures complement each other instead of just inheriting. With these different representation levels, the inpainting process is carried out.
+The network structure shown in figure \ref{fig:gmcnn} consists of three sub-networks. The first one is the generator network that creates the output inpainted image and is the main network which will used after the training phase. The other two sub-networks are networks that are only needed during the training phase respectively, local and global discriminator networks which used to calculate the adversarial loss and a pre-trained VGG network \cite{very_deep_conv} in order to calculate the designed ID-MRF loss. Generator network consists of n parallel encoder-decoder branches (in figure \ref{fig:gmcnn}, n = 3). These structures consist of convolution layers that apply filters of different kernel sizes to the input tensor. These convolution layers obtain features at different frequency levels according to the kernel size. Next, these branches which have different levels of information about input image upsampled bilinearly to the original image size. Then these same size branches combined together and forms a feature map. Continued with two more convolution layers, this feature map is transformed into the image. This image is the generated output image of the network and it is used to calculate the network loss when compared to the ground truth image. Even though these branches seem to be independent from each other, they are actually affected by the backpropagation phase in the training process. This framework is different from the commonly used encoder-decoder structures. In an encoder-decoder network, every layer inherits its information from its previous layer. However, in this architecture, different structures complement each other instead of just inheriting. With these different representation levels, the inpainting process is carried out.
 
 To calculate loss during model training, a mixture of three loss functions used. ID-MRF loss, reconstruction loss, and adversarial loss.
 
-ID-MRF stands for implicit diversified Markov random fields. This loss function is used to train with a path similarity based approach within a VGG structure fed with generated results. This method, which is used only during the training phase, is a metric used to measure the similarity between the randomly selected patches between generated pixel areas and the ground truth area pixel areas. A simple similarity measure like cosine similarity can be used to compute this process. This metric measures the similarity between the generated content and the random selected nearest-neighbor patches. But using cosine similarity measurement has some limitations. As seen in the figure 3.5.2.a, the results often become like blurry textures and for large masking areas this can become a serious problem.
+ID-MRF stands for implicit diversified Markov random fields. This loss function is used to train with a path similarity based approach within a VGG structure fed with generated results. This method, which is used only during the training phase, is a metric used to measure the similarity between the randomly selected patches between generated pixel areas and the ground truth area pixel areas. A simple similarity measure like cosine similarity can be used to compute this process. This metric measures the similarity between the generated content and the random selected nearest-neighbor patches. But using cosine similarity measurement has some limitations. As seen in the figure \ref{fig:cosine_similarity}.a, the results often become like blurry textures and for large masking areas this can become a serious problem.
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
-    \caption{Cosine similarity vs. Relative similarity}
-    \label{fig:my_label}
+    \includegraphics[width=13cm]{figures/chapter4/cosine_similarity.png}
+    \caption{Cosine similarity vs. Relative similarity \cite{inpainting_via_multi_cnn}}
+    \label{fig:cosine_similarity}
 \end{figure}
 
-In this article, in order to eliminate this problem, a relative similarity measurement has been developed and used instead of a direct similarity such as cosine similarity. As seen in figures 3.5.2.b and 3.5.2.c, the ground truth image pathches compared with the generated image patches. This relative similarity [ref: rmerc] equation can be seen in figure 3.5.3.
+In this article, in order to eliminate this problem, a relative similarity measurement has been developed and used instead of a direct similarity such as cosine similarity. As seen in figures \ref{fig:cosine_similarity}.b and \ref{fig:cosine_similarity}.c, the ground truth image pathches compared with the generated image patches. This relative similarity equation can be seen in equation \ref{eq:relative_similarity}.
 
 \begin{equation}
-    buraya equation gelecek
+    RS(v, s) = exp((\frac{\mu (v, s)}{\max_{r\in \rho_{v} (Y^{L}))} \mu(v,r) + \epsilon }) / h)
+    \label{eq:relative_similarity}
 \end{equation}
 
-u(v, s) in the equation represents cosine similarity between patch v from generated area and patch s from ground truth area, the  and  values are constants, and  represents the features on the Lth layer of the pre-trained VGG network. To be more precise, let generated content denoted as  and  is the corresponding ground truth, for any layer L, ID-RMF loss can be calculated as equation in the figure 3.5.4.
+\(\mu (v, s)\) in the equation represents cosine similarity between patch \(v\) from generated area and patch \(s\) from ground truth area, the  and  values are constants, and  represents the features on the \(L^{th}\) layer of the pre-trained VGG network. To be more precise, let generated content denoted as and is the corresponding ground truth, for any layer L, ID-RMF loss can be calculated as equation in the equation \ref{eq:idrmf_loss}.
 
 \begin{equation}
-    buraya equation gelecek
+    \mathfrak{L}_{M}(L) = - log(\frac{1}{z} \sum_{s \in Y^{L}} \max_{v \in \widehat{Y}_{g}^{L}} \overline{RS} (v, s))
+    \label{eq:idrmf_loss}
 \end{equation}
 
-The  is the normalized relative similarity as in the figure 3.5.5 and Z is normalization factor. r and s represents the patches from generated image and ground truth image respectively.
+The \(\overline{RS}\) is the normalized relative similarity as in the equation \ref{eq:normalized_rs} and \(Z\) is normalization factor. \(r\) and \(s\) represents the patches from generated image and ground truth image respectively.
 
 \begin{equation}
-    buraya equation gelecek
+    \overline{RS}(v,s) = RS(v,s) / \sum_{r \in \rho_{v}(Y^{L})} RS(v,r)
+    \label{eq:normalized_rs}
 \end{equation}
 
-If all r patches in the  are close to only one spesific patch and far from other patches in ground truth, relative similarity becomes small and leads to a big loss value (L). On the other hand if every r patch from generated image has a similar corresponding s patch in ground truth image, relative similarity becomes big and leads to a small loss value. One of the biggest contributions of this measure is to increase the similarity between the  and  features. While minimizing the loss, generated feature distrubution and ground truth feature distrubution approach each other. As a result, in the inpainting regions blurry texture problem is overcome and variation is achieved.
+If all \(r\) patches in the \(\widehat{Y}_{g}^{L}\) are close to only one spesific patch and far from other patches in ground truth, relative similarity becomes small and leads to a big loss value \(\mathfrak{L}_{M}(L)\). On the other hand if every \(r\) patch from generated image has a similar corresponding \(s\) patch in ground truth image, relative similarity becomes big and leads to a small loss value. One of the biggest contributions of this measure is to increase the similarity between the \(Y^{L}\) and \(\widehat{Y}_{g}^{L}\) features. While minimizing the loss, generated feature distrubution and ground truth feature distrubution approach each other. As a result, in the inpainting regions blurry texture problem is overcome and variation is achieved.
 
 \begin{equation}
-    buraya equation gelecek
+    \mathfrak{L}_{mrf} = \mathfrak{L}_{M}(conv4 \_ 2) + \sum_{t = 3}^{4} \mathfrak{L}_{M}(conv \mathbf{t} \_ 2)
+    \label{eq:Lmrf}
 \end{equation}
 
-With this loss active, during the training phase, a realistic texture was obtained both locally and globally. The features layers mentioned and shown in the figure 3.5.6 are taken from the VGG19 pre-trained model [ref:vgg].
+With this loss active, during the training phase, a realistic texture was obtained both locally and globally. The features layers mentioned and shown in the equation \ref{eq:Lmrf} are taken from the VGG19 pre-trained model \cite{very_deep_conv}.
 
-A pixel-wise working reconstruction loss has been developed as a spacial variant reconstruction loss. In this designed confidence-driven reconstruction loss, known pixel values assigned with the value of 1 and others missing pixels confidence values gradually decays with respect to the distance from the mask border. Thus the pixels on the boundary make the most impact on the loss. As a result, a smooth transition between the masked area and the rest of the image is achieved. Increasing distance away from the boundary is obtained by convolving the mask with a gaussian filter and formulized like equation in the figure 3.5.7.
+A pixel-wise working reconstruction loss has been developed as a spacial variant reconstruction loss. In this designed confidence-driven reconstruction loss, known pixel values assigned with the value of 1 and others missing pixels confidence values gradually decays with respect to the distance from the mask border. Thus the pixels on the boundary make the most impact on the loss. As a result, a smooth transition between the masked area and the rest of the image is achieved. Increasing distance away from the boundary is obtained by convolving the mask with a gaussian filter and formulized like equation \ref{eq:gaussian_filter}.
 
 \begin{equation}
-    buraya equation gelecek
+    M_{\omega}^{i} = (g \ast \overline{M}^{i}) \odot M
+    \label{eq:gaussian_filter}
 \end{equation}
 
-g represents a 64×64 gaussian filter with standart deviation of 40 and ◎ is the Hadamard product operator. Loss weight mask  is obtained by repeating the equation in figure 3.5.7 several times. Lastly the reconstruction loss calculated with the formula in the figure 3.5.8.
+\(g\) represents a 64×64 gaussian filter with standart deviation of 40 and \(\odot\) is the Hadamard product operator. Hadamard product means element-wise multiplication of the matrices. Loss weight mask \(M_{\omega}\) is obtained by repeating the equation \ref{eq:gaussian_filter} several times. Lastly the reconstruction loss calculated with the formula in \ref{eq:reconstruction_loss}.
 
 \begin{equation}
-    buraya equation gelecek
+    \mathfrak{L}_{c} = \left \| (Y - G([X, M]; \theta )) \odot M_{\omega} \right \|_{1}
+    \label{eq:reconstruction_loss}
 \end{equation}
 
-In figure 3.5.8, G([X,M];θ) represents the generated output. With the help of this loss, the results are softened from the mask boundaries towards the center.
+In equation \ref{eq:reconstruction_loss}, \(G([X, M]; \theta )\) represents the generated output. With the help of this loss, the results are softened from the mask boundaries towards the center.
 
-Adversarial loss is used frequently in many tasks such as inpainting missing pixels. In this architecture, improved Wasserstein GAN [ref:gulrajani] is used as a generator and one local and one global structure are used together as a discriminator. Reason for using two discriminators is to overcome the problem when generated areas are realistic and low loss but ill-matched with the rest of the image. The adversarial loss function is defined as in figure 3.5.9, where X = tG([X, M]; θ) + (1 − t)Y and t  [0, 1].
+Adversarial loss is used frequently in many tasks such as inpainting missing pixels. In this architecture, improved Wasserstein GAN \cite{improved_train_wgan} is used as a generator and one local and one global structure are used together as a discriminator. Reason for using two discriminators is to overcome the problem when generated areas are realistic and low loss but ill-matched with the rest of the image. The adversarial loss function is defined as in equation \ref{eq:adversarial_loss}, where \(\widehat{X} = tG([X, M]; \theta) + (1 − t) Y\) and \(t \in [0, 1]\).
 
 \begin{equation}
-    buraya equation gelecek
+    \mathfrak{L}_{adv} = - E_{X \sim \mathbb{P}_{x}}[D(G(X;\theta))] + \lambda_{gp} E_{\widehat{X} \sim \mathbb{P}_{\widehat{x}}}[(\left \| \nabla_{\widehat{X}} D(\widehat{X}) \odot M_{\omega} \right \|)_{2} - 1)^{2}]
+    \label{eq:adversarial_loss}
 \end{equation}
 
-Finally, the three loss functions mentioned above are combined together with different weights denoted as  and . Regularization of the model achieved in training process.
+Finally, the three loss functions mentioned above are combined together with different weights denoted as \(\lambda_{mrf}\) and \(\lambda_{adv}\) in equation \ref{eq:total_loss}. Regularization of the model achieved in training process.
 
 \begin{equation}
-    buraya equation gelecek
+    \mathfrak{L} = \mathfrak{L}_{c} + \lambda_{mrf} \mathfrak{L}_{mrf} + \lambda_{adv} \mathfrak{L}_{adv}
+    \label{eq:total_loss}
 \end{equation}
 
-As a comparison with GMCNN, two other CNN-based inpainting architectures selected under same conditions with the same losses and same hyperparameters. A single encoder-decoder network and the previously mentioned contextual attention coarse network [ref:context] tested alongside with the GMCNN. Results are shown in figure 3.5.11.
+As a comparison with GMCNN, two other CNN-based inpainting architectures selected under same conditions with the same losses and same hyperparameters. A single encoder-decoder network and the previously mentioned contextual attention coarse network \cite{generative_contextual} tested alongside with the GMCNN. Results are shown in figure \ref{fig:gmcnn_paris_comparison}. In \ref{fig:gmcnn_paris_comparison}.b, output of a single encoder-decoder network is shown. In \ref{fig:gmcnn_paris_comparison}.c, output of the contextual attention
+coarse network is shown. Lastly, in figures \ref{fig:gmcnn_paris_comparison}.d and \ref{fig:gmcnn_paris_comparison}.e output of the GMCNN can be seen. Yhe former is the network with the fixed receptive fields and the latter is with varied receptive fields.
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
-    \caption{GMCNN Comparison}
-    \label{fig:my_label}
+    \includegraphics[width=14cm]{figures/chapter4/gmcnn_paris_comparison.png}
+    \caption{Comparison between GMCNN and two other CNN-based methods \cite{inpainting_via_multi_cnn}}
+    \label{fig:gmcnn_paris_comparison}
 \end{figure}
 
-Also our implementation of the GMCNN using a pretrained network, achieved great results with two different datasets. Places [ref] dataset model and CelebA [ref] dataset model outputs can be seen in the figures 3.5.12 and 3.5.13 respectively.
+Also our results with the GMCNN using a pretrained network, achieved great looking outputs with two different datasets. Places \cite{dataset_places} dataset and CelebA \cite{celebA} dataset outputs can be seen in the figures \ref{fig:gmcnn_places2} and \ref{fig:gmcnn_celebA} respectively.
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
+    \includegraphics[width=12cm]{figures/chapter4/gmcnnout2.png}
     \caption{Result of the model trained on Places2 dataset}
-    \label{fig:my_label}
+    \label{fig:gmcnn_places2}
 \end{figure}
 
 As a limitation, like most of the generative neural networks this network also struggle with large datasets with diverse classes such as ImageNet. It is a harsh challange to inpaint different objects and places with one pre-trained model.
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
+    \includegraphics[width=12cm]{figures/chapter4/gmcnnout1.png}
     \caption{Result of the model trained on CelebAHQ dataset}
-    \label{fig:my_label}
+    \label{fig:gmcnn_celebA}
 \end{figure}
 
 \subsection{Deep Image Prior}
