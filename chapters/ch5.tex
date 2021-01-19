@@ -79,3 +79,27 @@ We were able to implement this idea. However, we are still on testing stage sinc
 \section{Test Results}
 
 Yazilacak.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|lllll}
+\textbf{PSNR}  & Generative CNN & Contextual Attention & Unified Model      \\ \hline
+10\% rectangle & 24.844490761670000  & 24.850492605756124   & 24.743092512042605 \\
+20\% rectangle & 20.395097252748855  & 21.162354749478556   & 20.504682361147054 \\
+random lines   & 32.143859603795630  & 31.956787492576950   & 28.981316289470524
+\end{tabular}
+\caption{PSNR Results}
+\label{tab:PSNRresults}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|lllll}
+\textbf{SSIM}  & Generative CNN & Contextual Attention & Unified Model      \\ \hline
+10\% rectangle & 0.9061930950257007  & 0.9102801845512879   & 0.9077312745201742 \\
+20\% rectangle & 0.8189780046987921  & 0.8269403263484212   & 0.8244177995307226 \\
+random lines   & 0.9421359825069808  & 0.9453951610283386   & 0.9072124670658422
+\end{tabular}
+\caption{SSIM Results}
+\label{tab:SSIMresults}
+\end{table}
