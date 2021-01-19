@@ -28,7 +28,7 @@ Another popular architecture used in inpainting studies is the encoder-decoder n
 \begin{figure}[h]
     \centering
     \includegraphics[width=14cm]{figures/chapter4/csa_layer.png}
-    \caption{CSA layer at the resolution of 32×32 in refinement network \cite{csa_layer}}
+    \caption{CSA layer at the resolution of \(32 \times 32\) in refinement network \cite{csa_layer}}
     \label{fig:csa_layer}
 \end{figure}
 
@@ -298,7 +298,7 @@ A pixel-wise working reconstruction loss has been developed as a spacial variant
     \label{eq:gaussian_filter}
 \end{equation}
 
-\(g\) represents a 64×64 gaussian filter with standart deviation of 40 and \(\odot\) is the Hadamard product operator. Hadamard product means element-wise multiplication of the matrices. Loss weight mask \(M_{\omega}\) is obtained by repeating the equation \ref{eq:gaussian_filter} several times. Lastly the reconstruction loss calculated with the formula in \ref{eq:reconstruction_loss}.
+\(g\) represents a \(64 \times 64\) gaussian filter with standart deviation of 40 and \(\odot\) is the Hadamard product operator. Hadamard product means element-wise multiplication of the matrices. Loss weight mask \(M_{\omega}\) is obtained by repeating the equation \ref{eq:gaussian_filter} several times. Lastly the reconstruction loss calculated with the formula in \ref{eq:reconstruction_loss}.
 
 \begin{equation}
     \mathfrak{L}_{c} = \left \| (Y - G([X, M]; \theta )) \odot M_{\omega} \right \|_{1}
@@ -307,7 +307,7 @@ A pixel-wise working reconstruction loss has been developed as a spacial variant
 
 In equation \ref{eq:reconstruction_loss}, \(G([X, M]; \theta )\) represents the generated output. With the help of this loss, the results are softened from the mask boundaries towards the center.
 
-Adversarial loss is used frequently in many tasks such as inpainting missing pixels. In this architecture, improved Wasserstein GAN \cite{improved_train_wgan} is used as a generator and one local and one global structure are used together as a discriminator. Reason for using two discriminators is to overcome the problem when generated areas are realistic and low loss but ill-matched with the rest of the image. The adversarial loss function is defined as in equation \ref{eq:adversarial_loss}, where \(\widehat{X} = tG([X, M]; \theta) + (1 − t) Y\) and \(t \in [0, 1]\).
+Adversarial loss is used frequently in many tasks such as inpainting missing pixels. In this architecture, improved Wasserstein GAN \cite{improved_train_wgan} is used as a generator and one local and one global structure are used together as a discriminator. Reason for using two discriminators is to overcome the problem when generated areas are realistic and low loss but ill-matched with the rest of the image. The adversarial loss function is defined as in equation \ref{eq:adversarial_loss}, where \(\widehat{X} = tG([X, M]; \theta) + (1 - t) Y\) and \(t \in [0, 1]\).
 
 \begin{equation}
     \mathfrak{L}_{adv} = - E_{X \sim \mathbb{P}_{x}}[D(G(X;\theta))] + \lambda_{gp} E_{\widehat{X} \sim \mathbb{P}_{\widehat{x}}}[(\left \| \nabla_{\widehat{X}} D(\widehat{X}) \odot M_{\omega} \right \|)_{2} - 1)^{2}]
@@ -327,7 +327,7 @@ coarse network is shown. Lastly, in figures \ref{fig:gmcnn_paris_comparison}.d a
 \begin{figure}[h]
     \centering
     \includegraphics[width=14cm]{figures/chapter4/gmcnn_paris_comparison.png}
-    \caption{Comparison between GMCNN and two other CNN-based methods \cite{inpainting_via_multi_cnn}}
+    \caption{Comparison between GMCNN and CNN-based methods \cite{inpainting_via_multi_cnn}}
     \label{fig:gmcnn_paris_comparison}
 \end{figure}
 
@@ -353,85 +353,89 @@ As a limitation, like most of the generative neural networks this network also s
 
 Deep convolutional networks have become very popular for image generation and restoration problems. In general, the reason behind the good results of such networks is the ability to obtain realistic image priors from datasets containing large number of images. To explain briefly what image prior is, it is a general definiton for the information on an image that can be used for any kind of image processing tasks to enhance results, to choose the processing parameters, and resolve indeterminacies. For instance, some information about an image may known such as color distrubution, and this information or its approximation can be used as a prior to a spesific task. Image priors can be represented with math form and merged into processing steps such as filtering, deconvolution and segmentation which helps to reduce the feasible solutions.
 
-In the article [ref: deepimageprior], the authors show that a generator network structure can get enough low-level image statistics without a long training phase on any dataset. To prove this hypothesis, designed deep image prior method with a randomly-initialized convolutional neural network was used as a prior and highly competitive results were obtained in various inverse computer vision problems such as denoising, super-resolution, and image inpainting. What makes this method important except that it can be used in a wide range of cumputer vision research areas, it can also forms a new branch between learning-based networks and learning-free networks with fixed explicit priors like self-similarity etc. To be declared in a single sentence, in deep image prior, authors tries to bridge the gap between two popular methods by constructing a new explicit prior using convolution neural network.
+In the article \cite{deep_image_prior}, the authors show that a generator network structure can get enough low-level image statistics without a long training phase on any dataset. To prove this hypothesis, designed deep image prior method with a randomly-initialized convolutional neural network was used as a prior and highly competitive results were obtained in various inverse computer vision problems such as denoising, super-resolution, and image inpainting. What makes this method important except that it can be used in a wide range of cumputer vision research areas, it can also forms a new branch between learning-based networks and learning-free networks with fixed explicit priors like self-similarity etc. To be declared in a single sentence, in deep image prior, authors tries to bridge the gap between two popular methods by constructing a new explicit prior using convolution neural network.
 
 To perform the task of image restoration like inpainting, learned-prior and explicit-prior are the two common methods utilized by researchers. To explain with an example, learned-prior is a straight forward approach to train a deep convolution network to learn about the world through the dataset. On the other hand, explicit-prior or hand-crafted prior method, is embedding constrains and distinctly teaching what types of images are natural. However in real word it is extremely difficult to express constraints mathematically. As a result, most of the explicit-prior methods works poorly compared to a state-of-the-art pre-trained neural network, yet deep image prior method offers surprisingly good results which can compete with learned-prior methods.
 
-Deep convolutional networks are architectures that on of the best for solving inverse image problems. Architectures like generative adversarial networks and variational auto-encoders achieve state-of-the-art solutions on this tasks. However, it is not entirely correct to assume that the reason for the amazing results of these models trained on large datasets is that they can capture realistic image priors while learning over the data. Because only a good learning curve on a selected datasets does not prove that a network performs good on an image from a different dataset. A good network requires generalization which means that the structure of the network should resonate with the structure of the given input data. For example, as shown [1], an image classification network which successfully generalized for real data can overfit when a random labels are presented.
+Deep convolutional networks are architectures that on of the best for solving inverse image problems. Architectures like generative adversarial networks and variational auto-encoders achieve state-of-the-art solutions on this tasks. However, it is not entirely correct to assume that the reason for the amazing results of these models trained on large datasets is that they can capture realistic image priors while learning over the data. Because only a good learning curve on a selected datasets does not prove that a network performs good on an image from a different dataset. A good network requires generalization which means that the structure of the network should resonate with the structure of the given input data \cite{deep_image_prior}. For example, an image classification network which successfully generalized for real data can overfit when a random labels are presented \cite{understanding_deeplearning}.
 
-To put it more clearly, in this article the authors shows that learning process is not a requirement and it is possible to obtain quite good image priors with a convolutional generative structure that does not need training. In order to prove this claim, an untrained, randomly-initialized convolutional generator neural network is fitted on a given corrupted image. Generator network initialized with a random distrubution conditioned to the input corrupted image. The reconstruction task is expressed as a conditional image generation problem. Randomly initialized network weights optimized without needing any other data than input image and network itself. “Only prior information is in the structure of the network itself.” [] as authors states.
-
-\begin{equation}
-    buraya equation gelecek
-\end{equation}
-
-In figure 3.6.1, x is corrupted input image, z is a code tensor and  represents the network parameters which randomly initialized in the beginning and will map code tensor z to the image x while resolving inverse problem through iterations. The network is switching between filtering operations such as non-linear activation, convolution, and upsampling. For most of the experiments, a hourglass type U-Net architecture with two million parameters used.
-
-In image restoration problems the goal is to recover original image x, when having a corrupted image. To solve such tasks, problem is often formulated as an optimization like in figure 3.6.2.
+To put it more clearly, in this article the authors shows that learning process is not a requirement and it is possible to obtain quite good image priors with a convolutional generative structure that does not need training. In order to prove this claim, an untrained, randomly-initialized convolutional generator neural network is fitted on a given corrupted image. Generator network initialized with a random distrubution conditioned to the input corrupted image. The reconstruction task is expressed as a conditional image generation problem. Randomly initialized network weights optimized without needing any other data than input image and network itself. Only prior information is in the structure of the network itself. \cite{deep_image_prior} as authors states.
 
 \begin{equation}
-    buraya equation gelecek
+    x = f_{\theta}(z), \hspace{5mm} x \in R^{3\times H \times W}, \hspace{5mm} z \in R^{C'\times H' \times W'}
+    \label{eq:prior_mapping}
 \end{equation}
 
-In equation 3.6.2, E(x;) is a data term dependent to the task and R(x) is an image prior. For a wide range of problems, such as super-resolution, denoising, and inpainting, the data term is typically simple to design, while designing the image prior is a challenging. For inpainting problems, the corresponding data term is defined as in the equation 3.6.3.
+In equation \ref{eq:prior_mapping}, \(x\) is corrupted input image, \(z\) is a code tensor and  represents the network parameters which randomly initialized in the beginning and will map code tensor \(z\) to the image \(x\) while resolving inverse problem through iterations. The network is switching between filtering operations such as non-linear activation, convolution, and upsampling. For most of the experiments, a hourglass type U-Net architecture with two million parameters used \cite{deep_image_prior}, \cite{hourglass}.
+
+In image restoration problems the goal is to recover original image \(x\), when having a corrupted image \(x_{0}\). To solve such tasks, problem is often formulated as an optimization like in equation \ref{eq:prior_min}.
 
 \begin{equation}
-    buraya equation gelecek
+    x^{\ast} = \min_{x} E(x;x_{0}) + R(x)
+    \label{eq:prior_min}
 \end{equation}
 
-The symbol ◎ is the Hadamard product operator and m is the binary mask applied onto ground truth image x. The goal is to reconstruct the ground truth image x from the given image  with missing pixel values.
-
-As mentioned, choosing a regularizer R(x) that can catch general priors in image x is a difficult and very extensive research subject within itself. To give an example, if total variation (TV) is selected as a regularizer, the results are often have uniform regions [ref: mahendran]. In this study, as seen in the equation 3.6.4, implicit prior which gathered from neural network was used as a regularizer.
+In equation \ref{eq:prior_min}, \(E(x;x_{0})\) is a data term dependent to the task and \(R(x)\) is an image prior. For a wide range of problems, such as super-resolution, denoising, and inpainting, the data term is typically simple to design, while designing the image prior is a challenging. For inpainting problems, the corresponding data term is defined as in the equation \ref{eq:prior_dataterm}.
 
 \begin{equation}
-    buraya equation gelecek
+    E(x;x_{0}) = \left \| (x - x_{0}) \odot m \right \|^{2} , \hspace{5mm} m \in \{0, 1\}^{H \times W}
+    \label{eq:prior_dataterm}
 \end{equation}
 
-* is the minimizer achieved with the help of the gradient descent optimizer from random parameter values. Result of the inpainting process denoted as x* is given in figure 3.6.4. It is also possible to apply minimazation on the code tensor z. However here z is a fixed three dimensional tensor containing 32 feature maps of uniform noise with the same spatial size as x.
+The symbol \(\odot\) is the Hadamard product operator which was explained in former sections and \(m\) is the binary mask applied onto ground truth image \(x\). The goal is to reconstruct the ground truth image \(x\) from the given image \(x_{0}\)  with missing pixel values.
+
+As mentioned, choosing a regularizer \(R(x)\) that can catch general priors in image \(x\) is a difficult and very extensive research subject within itself. To give an example, if total variation (TV) \cite{deep_inverting} is selected as a regularizer, the results are often have uniform regions. In this study, as seen in the equation \ref{eq:prior_theta}, implicit prior which gathered from neural network was used as a regularizer.
+
+\begin{equation}
+    \theta_{\ast} = \argmin_{\theta}E(f_{\theta}(z);x_{0}) , \hspace{5mm} x^{\ast} = f_{\theta^{\ast}}(z)
+    \label{eq:prior_theta}
+\end{equation}
+
+\(\theta^{\ast}\) is the minimizer achieved with the help of the gradient descent optimizer from random parameter values. Result of the inpainting process denoted as \(x^{\ast}\) is given in equation \ref{eq:prior_theta}. It is also possible to apply minimazation on the code tensor \(z\). However here \(z\) is a fixed three dimensional tensor containing 32 feature maps of uniform noise with the same spatial size as \(x\).
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
-    \caption{Deep Image Prior Comparison}
-    \label{fig:my_label}
+    \includegraphics[width=13cm]{figures/chapter4/imprior1.png}
+    \caption{Comparison between Shepard Network and Deep Image Prior \cite{shepard_nn}, \cite{deep_image_prior}}
+    \label{fig:prior_shepard_comparison}
 \end{figure}
 
-In the figure 3.6.5, deep image prior method compared with Shepard Neural Networks [ref:shepard] which is particularly designed for inpainting applications. Using a black text as a mask, this method demonstrates astonishing results. While in the output of the Shepard network remainings of the mask can be seen, in the output of the deep image prior method there are almost no artifacts.
+In the figure \ref{fig:prior_shepard_comparison} deep image prior method compared with Shepard Neural Networks \cite{shepard_nn} which is particularly designed for inpainting applications. Using a black text as a mask, this method demonstrates astonishing results. While in the output of the Shepard network remainings of the mask can be seen, in the output of the deep image prior method there are almost no artifacts.
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
-    \caption{Deep Image Prior output}
-    \label{fig:my_label}
+    \includegraphics[width=13cm]{figures/chapter4/imprior2.png}
+    \caption{Comparison between Convolutional Dictionary Learning and Deep Image Prior \cite{conv_dict_learning}, \cite{deep_image_prior}}
+    \label{fig:prior_dict_camparison}
 \end{figure}
 
-In another experiment, deep image prior is compared with Convolutional Dictionary Learning method [ref: dictionary] using an image where as a mask half of the pixels are removed by applying a bernoulli distrubution with random noise. Visual comparison is given in figure 3.6.6.
+In another experiment, deep image prior is compared with Convolutional Dictionary Learning method \cite{conv_dict_learning} using an image with masked half of its pixels by applying a bernoulli distrubution \cite{bernoulli} with random noise. Comparison results are given in figure \ref{fig:prior_dict_camparison}.
 
 Apart from the inpainting study of small pixel regions, a large region inpainting process was also tested and deep image prior method has shown great success again. Although deep image prior method works great for variety of images, as a limitation it works poorly while inpainting large masked areas of the images which have highly semantic information such as face images due to being a learning-free method.
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
-    \caption{Deep Image Prior output}
-    \label{fig:my_label}
+    \includegraphics[width=13cm]{figures/chapter4/imprior3.png}
+    \caption{Comparison between Global-Local GAN and Deep Image Prior \cite{Iizuka2017}, \cite{deep_image_prior}}
+    \label{fig:prior_gan_comparison}
 \end{figure}
 
-Result of the inpainting of a large masked region with deep image prior method is compared with a learning-based generative adversarial network model [ref: global-local]. As shown in the figure 3.6.7, the pretrained GAN structure performs the inpainting process with the information learned from the dataset it trained on. On the other hand deep image prior fills the missing region with texture information learned from known regions.
+Result of the inpainting of a large masked region with deep image prior method is compared with a learning-based generative adversarial network model \cite{Iizuka2017}. As shown in the figure \ref{fig:prior_gan_comparison}, the pretrained GAN structure performs the inpainting process with the information learned from the dataset it trained on. On the other hand deep image prior fills the missing region with texture information learned from known regions.
 
-As mentioned, deep image prior is a method which can be applied onto any network architecture, the results obtained are highly dependent on the network structure used. In figure 3.6.7, deep image prior method applied on different neural networks. From the results, it can be concluded that deeper networks have positive effect on the inpainting solution. However, having skip-connections which can significantly improve image recognition tasks shows extremely harmful behaviour in inpainting process as seen in figure 3.6.8.e and 3.6.8.f where skip-connectons added to the ResNet [ref] and U-Net [ref] architectures.
+As mentioned, deep image prior is a method which can be applied onto any network architecture, the results obtained are highly dependent on the network structure used. In figure \ref{fig:prior_multimodels}, deep image prior method applied on different neural networks. From the results, it can be concluded that deeper networks have positive effect on the inpainting solution. However, having skip-connections which can significantly improve image recognition tasks shows extremely harmful behaviour in inpainting process as seen in figure \ref{fig:prior_multimodels}.e and \ref{fig:prior_multimodels}.f where skip-connections added to the ResNet \cite{deep_residual_recognition} and U-Net \cite{unet} architectures.
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
-    \caption{Skip Layer effects}
-    \label{fig:my_label}
+    \includegraphics[width=13cm]{figures/chapter4/imprior4.png}
+    \caption{Deep Image Prior results on different networks \cite{deep_image_prior}}
+    \label{fig:prior_multimodels}
 \end{figure}
 
-Finally, we tested the Deep Image Prior method using a encoder-decoder network and achieved quite enough results. Figure 3.6.9 shows the output after 1000 iteration.
+In figures \ref{fig:prior_multimodels}.b, \ref{fig:prior_multimodels}.c and \ref{fig:prior_multimodels}.d an encoder-decoder architectures used with depth size of 6, 4, and 2 respectively. Figure \ref{fig:prior_multimodels}.e is the output of the ResNet with skip layers and with depth of 8. Figure \ref{fig:prior_multimodels}.f is the output of the U-Net structure with skip layers and depth of 5. Finally, we tested the Deep Image Prior method using a encoder-decoder network and achieved quite enough results. Figure \ref{fig:prior_lenna} shows the output of the image 512x512 image with mask we generated after 1000 iteration.
 
 \begin{figure}[h]
     \centering
-    \includegraphics{}
-    \caption{Result of the 1000th iteration of an encoder-decoder network}
-    \label{fig:my_label}
+    \includegraphics[width=13cm]{figures/chapter4/impriorout.png}
+    \caption{Example result of the deep image prior method}
+    \label{fig:prior_lenna}
 \end{figure}
