@@ -130,7 +130,7 @@ Pooling layers, generally following the convolutional layers, reduce the size of
 \begin{figure}[h]
     \centering
     \includegraphics[width=10cm]{figures/chapter3/pooling.png}
-    %\hspace{5cm} % gerekirse kullanabiliriz.
+    %\vspace{5cm} % gerekirse kullanabiliriz.
     \caption{Pooling \cite{convolution_pooling}}
     \label{fig:pooling}
 \end{figure}
@@ -139,13 +139,36 @@ Flattening layer is the layer that makes the tensors in CNN structures vectorize
 
 There are two CNN architectures commonly used for deep inpainting studies. First one is the encoder-decoder structures, and the other one is a derivation of the former one which called as autoencoder structure. These architectures performs well on many computer vision task and also shows promising results on other inverse problems in computer vision such as inpainting, denoising, and super-resolution. Moreover, this structures can work on different deep learning problems such as sentiment analysis, image captioning, and translation. For example, Google Translate is built upon an encoder-decoder structure \cite{google_translate}.
 
-\subsection{Encoder-Decoder}
+\subsection{Encoder-Decoder Networks}
 
-Enes yazacak.
+To explain briefly, encoder network can be in fully connected structure or convolutional structure or even as recurrent neural network (RNN) structure \cite{rnn_seq2seq}. An encoder network will take input and output a feature map which is simply a vector or more generally a tensor. This feature vector holds the necessary and important feature information about the input. The decoder network is usually the same network architecture as a encoder but in reverse. It takes a feature vector and tries to generate the input as closest as possible. Encoder-decoder network consist of two network parts which are a encoder and a decoder. Input processed through these structures. These network structures can be used in various areas such as language translation \cite{google_translate} and in computer vision applications as generative models. Mentioned model architecture can be seen in figure \ref{fig:encoder_decoder}.
 
-\subsection{Autoencoder}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=10cm]{figures/chapter3/encoder-decoder.png}
+    \caption{Encoder-Decoder Network Structure \cite{encoder_decoder}}
+    \label{fig:encoder_decoder}
+\end{figure}
 
-Enes yazacak.
+\subsection{Autoencoder Networks}
+
+Autoencoder is a structure that aims to establish a connection between input and output by obtaining a code in hidden layers. The code concept here can be considered similar to the feature vector in encoder-decoder network structures. The most typical use of autoencoders is dimension reduction. Autoencoder structured neural networks can be used in unsupervised non-linear dimension reduction applications. In figure \ref{fig:autoencoder_vs_pca} a comparison between a traditional dimension reduction method PCA \cite{pca} and a autoencoder structure.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=9cm]{figures/chapter3/autoencoder_vs_pca.png}
+    \caption{Autoencoder vs. PCA dimension reduction task \cite{autoencoder_vs_pca}}
+    \label{fig:autoencoder_vs_pca}
+\end{figure}
+
+By training the autoencoders it becomes possible to ignore the noise in data. For instance, it can be used in anomaly detection application over any signal \cite{anomaly_detection1} \cite{anomaly_detection2}. Another example application would be to create a noiseless image from a noisy image by obtaining the most important features while ignoring the noise \cite{denoising}. This application is called denoising which is a popular inverse problems in computer vision studies. Learning in autoencoder structures is actually possible with an encoder that can best describe the input image and a decoder that can give an output as similar as possible to the original image using this description from former encoder structure. A convolutional autoencoder network structure designed for the image classification application is shown in the figure \ref{fig:mnist_autoencoder}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=13cm]{figures/chapter3/mnist_autoencoder.png}
+    \caption{Convolutional autoencoder network structure \cite{autoencoders}}
+    \label{fig:mnist_autoencoder}
+\end{figure}
 
 \section{Generative Adversarial Networks}
 
