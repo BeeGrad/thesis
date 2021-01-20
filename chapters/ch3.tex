@@ -14,13 +14,6 @@ The main feature that enables neural networks to work is that they are made of n
 
 There are billions of neurons in a human brain. These neurons communicate with each other using electrical signals. Neurons produce their own output according to the different types of signals they receive. If the value they receive is above a certain limit, it generates electrical impulse in response.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics{figures/chapter3/braincell.png}
-    \caption{Brain Neuron}
-    \label{fig:brain_neuron}
-\end{figure}
-
 As with a real neuron, a neuron in the ANN also functions similarly. The neurons in the ANN simply take the input they receive and process this data and then give an output. Each neuron in the network has its own parameters called weights. This decision-making process produces an output yes or no. Hence, it is possible to call this process a classifier. Similar to a neuron function, a threshold function is illustrated in figure \ref{fig:threshold}.
 
 \begin{figure}[h]
@@ -67,6 +60,7 @@ As was the case when neural networks were first launched, the perceptron could n
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.45]{figures/chapter3/FeedForward.png}
+    \vspace*{5mm}
     \caption{Feed-Forward Network Structure}
     \label{fig:feed-forwardl}
 \end{figure}
@@ -78,7 +72,7 @@ It is also pretty significant to state that single-layered perceptron models are
 \begin{figure}[h]
     \centering
     \includegraphics{figures/chapter3/linear-nonlinear-seperable.png}
-    \caption{Data with Different Distributions}
+    \caption{Data with Different Distributions\cite{sepdata}}
     \label{fig:data-diff-dist}
 \end{figure}
 
@@ -146,6 +140,7 @@ To explain briefly, encoder network can be in fully connected structure or convo
 \begin{figure}[h]
     \centering
     \includegraphics[width=10cm]{figures/chapter3/encoder-decoder.png}
+    \vspace*{5mm}
     \caption{Encoder-Decoder Network Structure \cite{encoder_decoder}}
     \label{fig:encoder_decoder}
 \end{figure}
@@ -166,6 +161,7 @@ By training the autoencoders it becomes possible to ignore the noise in data. Fo
 \begin{figure}[h]
     \centering
     \includegraphics[width=13cm]{figures/chapter3/mnist_autoencoder.png}
+    \vspace*{3mm}
     \caption{Convolutional autoencoder network structure \cite{autoencoders}}
     \label{fig:mnist_autoencoder}
 \end{figure}
@@ -181,7 +177,8 @@ It is possible to categorize methods of machine learning under 2 main categories
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.5]{figures/chapter3/generative-vs-discriminative-example.png}
-    \caption{Difference Between Generative and Discriminative Models}
+    \vspace*{3mm}
+    \caption{Difference Between Generative and Discriminative Models\cite{ganintro}}
     \label{fig:gan1}
 \end{figure}
 
@@ -190,7 +187,8 @@ There are different type of generative methods in machine learning. Most generat
 \begin{figure}[h]
     \centering
     \includegraphics{figures/chapter3/gan-references-over-years.png}
-    \caption{GAN Citation Counts}
+    \vspace*{3mm}
+    \caption{GAN Citation Counts \cite{ganoverview}}
     \label{fig:gancount}
 \end{figure}
 
@@ -205,6 +203,7 @@ From this point of view, it can be said that the Generative and Discriminator st
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.55]{figures/chapter3/GAN.png}
+    \vspace*{3mm}
     \caption{GAN Model Explanation}
     \label{fig:ganstruct}
 \end{figure}
@@ -218,23 +217,15 @@ To explain, D and G play minimax with the function V (G, D) given in equation \r
     min_Gmax_D V(D,G)= E_{x~P_{data(x)}}[logD(x)]+E_{z~P_{z}(Z)}[log(1-D(G(z)))]
 \end{equation}
 
-When implemented, it can be seen that Equation [] could not give sufficient results. As can be guessed, at the beginning of the training phase, the Discriminator structure generated data can be easily distinguished from the real data which causes log(1-D(G(Z)) to saturate. In this case, it is reasonable to train to minimize log(D(G(Z)) rather than train to minimize log(1-D(G(Z)).
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.7]{figures/chapter3/gan-mapping.png}
-    \caption{Mapping Effects}
-    \label{fig:gan-mappingl}
-\end{figure}
-
-The bottom line shown in Figure \ref{fig:gan-mappingl}, represents the data, and the horizontal line above it shows the domain of the data generated. The upward arrows between these two lines also show how the x = G (z) mapping takes place. [Şurayı ANLAAAA VE ORIGINALDAN EKLE]
+When implemented, it can be seen that Equation \ref{eqn:minmax} could not give sufficient results in the first steps of training. As can be guesse, at the beginning of the training phase, the Discriminator network could easily distinguish generated data from the real data which causes log(1-D(G(Z)) to saturate. In this case, it is reasonable to train to minimize log(D(G(Z)) rather than train to minimize log(1-D(G(Z)).
 
 To exemplify the success of GAN structures, examples of faces produced by this method in different years are shown in Figure \ref{fig:gan-success}.
 
 \begin{figure}[h]
     \centering
     \includegraphics{figures/chapter3/gan-success-over-years.png}
-    \caption{GAN Success Over Years}
+    \vspace*{3mm}
+    \caption{GAN Success Over Years \cite{ganoverview}}
     \label{fig:gan-success}
 \end{figure}
 
@@ -247,7 +238,7 @@ DCGAN is an important development in terms of having more successful and high qu
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.8]{figures/chapter3/dc-gan-structure.png}
-    \caption{DCGAN Structure}
+    \caption{DCGAN Structure \cite{dcgan}}
     \label{fig:dcgan}
 \end{figure}
 
