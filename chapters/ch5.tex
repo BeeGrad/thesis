@@ -179,9 +179,9 @@ In this section, visual and analytical comparisons of implemented models are sho
         \hspace{0.17\columnwidth}
         \subfloat[MaskedImage]{\includegraphics[width=0.32\columnwidth]{figures/chapter5/tests/ehr1.jpg}}
         \newline
-        \subfloat[Fast Marching Method]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/ehr1.jpg}}
+        \subfloat[Fast Marching Method]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/hires1_fmm.png}}
         \hspace{0.02\columnwidth}
-        \subfloat[Deep Image Prior]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/ehr1.jpg}}
+        \subfloat[Deep Image Prior]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/prior_hr1.jpg}}
         \hspace{0.02\columnwidth}
         \subfloat[GMCNN]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/gmcnnhr1.jpg}}
         \hspace{0.02\columnwidth}
@@ -201,9 +201,9 @@ In this section, visual and analytical comparisons of implemented models are sho
         \hspace{0.17\columnwidth}
         \subfloat[MaskedImage]{\includegraphics[width=0.32\columnwidth]{figures/chapter5/tests/ehr3.jpg}}
         \newline
-        \subfloat[Fast Marching Method]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/ehr3.jpg}}
+        \subfloat[Fast Marching Method]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/hires3_fmm.png}}
         \hspace{0.02\columnwidth}
-        \subfloat[Deep Image Prior]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/ehr3.jpg}}
+        \subfloat[Deep Image Prior]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/prior_hr3.jpg}}
         \hspace{0.02\columnwidth}
         \subfloat[GMCNN]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/gmcnnhr3.jpg}}
         \hspace{0.02\columnwidth}
@@ -223,9 +223,9 @@ In this section, visual and analytical comparisons of implemented models are sho
         \hspace{0.17\columnwidth}
         \subfloat[MaskedImage]{\includegraphics[width=0.32\columnwidth]{figures/chapter5/tests/mceleb1.png}}
         \newline
-        \subfloat[Fast Marching Method]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/celebffm.png}}
+        \subfloat[Fast Marching Method]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/celeb_fmm.png}}
         \hspace{0.02\columnwidth}
-        \subfloat[Deep Image Prior]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/eceleb1.png}}
+        \subfloat[Deep Image Prior]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/prior_celeb.jpg}}
         \hspace{0.02\columnwidth}
         \subfloat[GMCNN]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/gmcnnceleb1.png}}
         \hspace{0.02\columnwidth}
@@ -363,9 +363,9 @@ Mentioned models are tested with Place2 validation data over 3 different masking
 \centering
 \begin{tabular}{@{}l|c|c|c|c|c|c|l@{}}
 \textbf{PSNR} & \multicolumn{1}{l|}{NS} & \multicolumn{1}{l|}{FM} & \multicolumn{1}{l|}{EC} & \multicolumn{1}{l|}{CA} & \multicolumn{1}{l|}{GC} & \multicolumn{1}{l|}{DP} & U      \\ \midrule
-Lines         & a                       & a                       & 29.049                  & 31.956                  & 32.143                  & a                       & 28.981 \\ \cmidrule(l){2-8} 
-10\%          & a                       & a                       & 26.148                  & 24.850                  & 24.844                  & a                       & 24.743 \\ \cmidrule(l){2-8} 
-20\%          & a                       & a                       & 22.508                  & 21.162                  & 20.395                  & a                       & 20.504 \\ \bottomrule
+Lines         & 31.087           & 30.620                       & 29.049                  & 31.956                  & 32.143                  & 32.336                      & 28.981 \\ \cmidrule(l){2-8} 
+10\%          & 25.108                    & 25.284                     & 26.148                  & 24.850                  & 24.844                  & a                       & 24.743 \\ \cmidrule(l){2-8} 
+20\%          & 21.379                   & 21.504                     & 22.508                  & 21.162                  & 20.395                  & a                       & 20.504 \\ \bottomrule
 \end{tabular}
 \caption{PSNR Results}
 \label{tab:PSNRresults}
@@ -375,9 +375,9 @@ Lines         & a                       & a                       & 29.049      
 \centering
 \begin{tabular}{@{}l|c|c|c|c|c|c|l@{}}
 \textbf{SSIM} & \multicolumn{1}{l|}{NS} & \multicolumn{1}{l|}{FM} & \multicolumn{1}{l|}{EC} & \multicolumn{1}{l|}{CA} & \multicolumn{1}{l|}{GC} & \multicolumn{1}{l|}{DP} & U     \\ \midrule
-Lines         & a                       & a                       & 0.916                   & 0.945                   & 0.942                   & a                       & 0.907 \\ \cmidrule(l){2-8} 
-10\%          & a                       & a                       & 0.911                   & 0.910                   & 0.906                   & a                       & 0.908 \\ \cmidrule(l){2-8} 
-20\%          & a                       & a                       & 0.824                   & 0.826                   & 0.818                   & a                       & 0.824 \\ \bottomrule
+Lines         & 0.949                  & 0.940                    & 0.916                   & 0.945                   & 0.942                   & 0.868                     & 0.907 \\ \cmidrule(l){2-8} 
+10\%          & 0.902                    & 0.902                & 0.911                   & 0.910                   & 0.906                   & a                       & 0.908 \\ \cmidrule(l){2-8} 
+20\%          & 0.813                   & 0.813                      & 0.824                   & 0.826                   & 0.818                   & a                       & 0.824 \\ \bottomrule
 \end{tabular}
 \caption{SSIM Results}
 \label{tab:SSIMresults}
