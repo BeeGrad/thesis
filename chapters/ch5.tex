@@ -131,7 +131,7 @@ Feature Pyramid Networks is proposed in paper Feature Pyramid Networks for Objec
         \hspace{0.05\columnwidth}
         \subfloat[Feature Pyramid Network]{\includegraphics[width=0.45\columnwidth]{figures/chapter5/fpn4.PNG}}
         \vspace*{3mm}
-        \caption{Unified Model Inpainting Example \cite{feature_pyramid}}
+        \caption{Feature Pyramid Structures \cite{feature_pyramid}}
     \label{fig:fpnstructs}
 \end{figure}
 
@@ -162,28 +162,238 @@ In the models we use throughout this project uses single feature map structure g
 \newpage
 \section{Test Results}
 
-Yazilacak.
+In this section, visual and analytical comparisons of implemented models are shown.
 
-\begin{table}[h]
+% input
+% mask
+% navier-stokes
+% deep image prior
+% gmcnn
+% edgeconnect
+% contextual
+% unified
+
+% HIGHRES1
+\begin{figure}[!ht]
+    \centering
+        \hspace{0.17\columnwidth}
+        \subfloat[MaskedImage]{\includegraphics[width=0.32\columnwidth]{figures/chapter5/tests/ehr1.jpg}}
+        \newline
+        \subfloat[Fast Marching Method]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/ehr1.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Deep Image Prior]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/ehr1.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[GMCNN]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/gmcnnhr1.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Contextual Attention]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/ghr1.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[EdgeConnect]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/ehr1.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Unified]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/uhr1.png}}
+        \vspace*{3mm}
+        \caption{Example Inpainting Comparison 1}
+    \label{fig:test1}
+\end{figure}
+
+% HIGHRES2
+\begin{figure}[!ht]
+    \centering
+        \hspace{0.17\columnwidth}
+        \subfloat[MaskedImage]{\includegraphics[width=0.32\columnwidth]{figures/chapter5/tests/ehr3.jpg}}
+        \newline
+        \subfloat[Fast Marching Method]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/ehr3.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Deep Image Prior]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/ehr3.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[GMCNN]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/gmcnnhr3.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Contextual Attention]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/ghr3.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[EdgeConnect]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/ehr3.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Unified]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/uhr3.png}}
+        \vspace*{3mm}
+        \caption{Example Inpainting Comparison 2}
+    \label{fig:test1}
+\end{figure}
+
+% CELEBA FACE
+\begin{figure}[!ht]
+    \centering
+        \hspace{0.17\columnwidth}
+        \subfloat[MaskedImage]{\includegraphics[width=0.32\columnwidth]{figures/chapter5/tests/mceleb1.png}}
+        \newline
+        \subfloat[Fast Marching Method]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/celebffm.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Deep Image Prior]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/eceleb1.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[GMCNN]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/gmcnnceleb1.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Contextual Attention]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/gceleb1.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[EdgeConnect]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/eceleb1.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Unified]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/eceleb1.png}}
+        \vspace*{3mm}
+        \caption{Example Inpainting Comparison 3}
+    \label{fig:test1}
+\end{figure}
+
+% BUNDAN SONRASI 256X256
+\begin{figure}[!ht]
+    \centering
+        \subfloat[Input Image]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/itu1.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Mask]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/mask1.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Fast Marching Method]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f11.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Deep Image Prior]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/dp11.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[GMCNN]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/c11.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Contextual Attention]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/g11.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[EdgeConnect]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/e11.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f11.jpg}}
+        \vspace*{3mm}
+        \caption{Example Inpainting Comparison 4}
+    \label{fig:test1}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+        \subfloat[Input Image]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/itu2.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Mask]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/mask2.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Fast Marching Method]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f22.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Deep Image Prior]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/dp22.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[GMCNN]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/c22.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Contextual Attention]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/g22.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[EdgeConnect]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/e22.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f22.jpg}}
+        \vspace*{3mm}
+        \caption{Example Inpainting Comparison 5}
+    \label{fig:test1}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+        \subfloat[Input Image]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/itu3.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Mask]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/mask3.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Fast Marching Method]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f33.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Deep Image Prior]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/dp33.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[GMCNN]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/c33.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Contextual Attention]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/g33.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[EdgeConnect]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/e33.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f33.jpg}}
+        \vspace*{3mm}
+        \caption{Example Inpainting Comparison 6}
+    \label{fig:test1}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+        \subfloat[Input Image]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/itu4.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Mask]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/mask4.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Fast Marching Method]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f44.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Deep Image Prior]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/dp44.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[GMCNN]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/c44.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Contextual Attention]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/g44.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[EdgeConnect]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/e44.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f44.jpg}}
+        \vspace*{3mm}
+        \caption{Example Inpainting Comparison 7}
+    \label{fig:test1}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+        \subfloat[Input Image]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/itu5.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Mask]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/mask5.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Fast Marching Method]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f55.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Deep Image Prior]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/dp55.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[GMCNN]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/c55.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Contextual Attention]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/g55.png}}
+        \hspace{0.02\columnwidth}
+        \subfloat[EdgeConnect]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/e55.jpg}}
+        \hspace{0.02\columnwidth}
+        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f55.jpg}}
+        \vspace*{3mm}
+        \caption{Example Inpainting Comparison 8}
+    \label{fig:test1}
+\end{figure}
+%%%
+\newpage
+
+% \usepackage{booktabs}
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+
+Mentioned models are tested with Place2 validation data over 3 different masking types. One of the masks is a mask with an arbitrary line goes over the image. The other 2 masks are rectangles that cover a certain percentage over the image which are 10\% and 20\%. Analytical comparisons according to PSNR and SSIM values are given in \ref{tab:PSNRresults} and \ref{tab:SSIMresults} while NS, FM, EC, CA, GC, DP, U represents Navier-Strokes, Fast-Marching, EdgeConnect, Contextual Attention, GMCNN, Deep Prior and Unified models respectively.
+
+
+\begin{table}[h!]
 \centering
-\begin{tabular}{l|lllll}
-\textbf{PSNR}  & Generative CNN & Contextual Attention & Unified Model      \\ \hline
-10\% rectangle & 24.844490761670000  & 24.850492605756124   & 24.743092512042605 \\
-20\% rectangle & 20.395097252748855  & 21.162354749478556   & 20.504682361147054 \\
-random lines   & 32.143859603795630  & 31.956787492576950   & 28.981316289470524
+\begin{tabular}{@{}l|c|c|c|c|c|c|l@{}}
+\textbf{PSNR} & \multicolumn{1}{l|}{NS} & \multicolumn{1}{l|}{FM} & \multicolumn{1}{l|}{EC} & \multicolumn{1}{l|}{CA} & \multicolumn{1}{l|}{GC} & \multicolumn{1}{l|}{DP} & U      \\ \midrule
+Lines         & a                       & a                       & 29.049                  & 31.956                  & 32.143                  & a                       & 28.981 \\ \cmidrule(l){2-8} 
+10\%          & a                       & a                       & 26.148                  & 24.850                  & 24.844                  & a                       & 24.743 \\ \cmidrule(l){2-8} 
+20\%          & a                       & a                       & 22.508                  & 21.162                  & 20.395                  & a                       & 20.504 \\ \bottomrule
 \end{tabular}
 \caption{PSNR Results}
 \label{tab:PSNRresults}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[h!]
 \centering
-\begin{tabular}{l|lllll}
-\textbf{SSIM}  & Generative CNN & Contextual Attention & Unified Model      \\ \hline
-10\% rectangle & 0.9061930950257007  & 0.9102801845512879   & 0.9077312745201742 \\
-20\% rectangle & 0.8189780046987921  & 0.8269403263484212   & 0.8244177995307226 \\
-random lines   & 0.9421359825069808  & 0.9453951610283386   & 0.9072124670658422
+\begin{tabular}{@{}l|c|c|c|c|c|c|l@{}}
+\textbf{SSIM} & \multicolumn{1}{l|}{NS} & \multicolumn{1}{l|}{FM} & \multicolumn{1}{l|}{EC} & \multicolumn{1}{l|}{CA} & \multicolumn{1}{l|}{GC} & \multicolumn{1}{l|}{DP} & U     \\ \midrule
+Lines         & a                       & a                       & 0.916                   & 0.945                   & 0.942                   & a                       & 0.907 \\ \cmidrule(l){2-8} 
+10\%          & a                       & a                       & 0.911                   & 0.910                   & 0.906                   & a                       & 0.908 \\ \cmidrule(l){2-8} 
+20\%          & a                       & a                       & 0.824                   & 0.826                   & 0.818                   & a                       & 0.824 \\ \bottomrule
 \end{tabular}
 \caption{SSIM Results}
 \label{tab:SSIMresults}
+\end{table}
+
+Furthermore, PSNR and SSIM values for our proposed method, Feature Pyramid GAN and Vanilla GAN for comparison are given in table \ref{tab:PSNRandSSIM}
+
+\begin{table}[]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{l|l|l|l|l|l|l}
+     & Line Vanilla & Line FPN & 10\% Vanilla & 10\% FPN & 20\% Vanilla & 20\% FPN \\ \hline
+PSNR & a            & a        & a            & a        & a            & a        \\ \hline
+SSIM & b            & b        & b            & b        & b            & b       
+\end{tabular}%
+}
+\caption{SSIM and PSNR Results}
+\label{tab:PSNRandSSIM}
 \end{table}
