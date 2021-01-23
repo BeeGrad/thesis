@@ -177,7 +177,7 @@ In this section, visual and analytical comparisons of implemented models are sho
 \begin{figure}[!ht]
     \centering
         \hspace{0.17\columnwidth}
-        \subfloat[MaskedImage]{\includegraphics[width=0.32\columnwidth]{figures/chapter5/tests/ehr1.jpg}}
+        \subfloat[MaskedImage]{\includegraphics[width=0.32\columnwidth]{figures/chapter5/tests/hires1_masked.png}}
         \newline
         \subfloat[Fast Marching Method]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/hires1_fmm.png}}
         \hspace{0.02\columnwidth}
@@ -199,7 +199,7 @@ In this section, visual and analytical comparisons of implemented models are sho
 \begin{figure}[!ht]
     \centering
         \hspace{0.17\columnwidth}
-        \subfloat[MaskedImage]{\includegraphics[width=0.32\columnwidth]{figures/chapter5/tests/ehr3.jpg}}
+        \subfloat[MaskedImage]{\includegraphics[width=0.32\columnwidth]{figures/chapter5/tests/hires3_masked.png}}
         \newline
         \subfloat[Fast Marching Method]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/hires3_fmm.png}}
         \hspace{0.02\columnwidth}
@@ -221,7 +221,7 @@ In this section, visual and analytical comparisons of implemented models are sho
 \begin{figure}[!ht]
     \centering
         \hspace{0.17\columnwidth}
-        \subfloat[MaskedImage]{\includegraphics[width=0.32\columnwidth]{figures/chapter5/tests/mceleb1.png}}
+        \subfloat[MaskedImage]{\includegraphics[width=0.32\columnwidth]{figures/chapter5/tests/celeb_masked.png}}
         \newline
         \subfloat[Fast Marching Method]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/celeb_fmm.png}}
         \hspace{0.02\columnwidth}
@@ -233,7 +233,7 @@ In this section, visual and analytical comparisons of implemented models are sho
         \hspace{0.02\columnwidth}
         \subfloat[EdgeConnect]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/eceleb1.png}}
         \hspace{0.02\columnwidth}
-        \subfloat[Unified]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/eceleb1.png}}
+        \subfloat[Unified]{\includegraphics[width=0.31\columnwidth]{figures/chapter5/tests/uceleb1.png}}
         \vspace*{3mm}
         \caption{Example Inpainting Comparison 3}
     \label{fig:test1}
@@ -256,7 +256,7 @@ In this section, visual and analytical comparisons of implemented models are sho
         \hspace{0.02\columnwidth}
         \subfloat[EdgeConnect]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/e11.jpg}}
         \hspace{0.02\columnwidth}
-        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f11.jpg}}
+        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/u11.png}}
         \vspace*{3mm}
         \caption{Example Inpainting Comparison 4}
     \label{fig:test1}
@@ -278,7 +278,7 @@ In this section, visual and analytical comparisons of implemented models are sho
         \hspace{0.02\columnwidth}
         \subfloat[EdgeConnect]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/e22.jpg}}
         \hspace{0.02\columnwidth}
-        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f22.jpg}}
+        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/u22.png}}
         \vspace*{3mm}
         \caption{Example Inpainting Comparison 5}
     \label{fig:test1}
@@ -300,7 +300,7 @@ In this section, visual and analytical comparisons of implemented models are sho
         \hspace{0.02\columnwidth}
         \subfloat[EdgeConnect]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/e33.jpg}}
         \hspace{0.02\columnwidth}
-        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f33.jpg}}
+        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/u33.png}}
         \vspace*{3mm}
         \caption{Example Inpainting Comparison 6}
     \label{fig:test1}
@@ -322,7 +322,7 @@ In this section, visual and analytical comparisons of implemented models are sho
         \hspace{0.02\columnwidth}
         \subfloat[EdgeConnect]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/e44.jpg}}
         \hspace{0.02\columnwidth}
-        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f44.jpg}}
+        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/u44.png}}
         \vspace*{3mm}
         \caption{Example Inpainting Comparison 7}
     \label{fig:test1}
@@ -344,7 +344,7 @@ In this section, visual and analytical comparisons of implemented models are sho
         \hspace{0.02\columnwidth}
         \subfloat[EdgeConnect]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/e55.jpg}}
         \hspace{0.02\columnwidth}
-        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/f55.jpg}}
+        \subfloat[Unified]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/u55.png}}
         \vspace*{3mm}
         \caption{Example Inpainting Comparison 8}
     \label{fig:test1}
@@ -363,9 +363,9 @@ Mentioned models are tested with Place2 validation data over 3 different masking
 \centering
 \begin{tabular}{@{}l|c|c|c|c|c|c|l@{}}
 \textbf{PSNR} & \multicolumn{1}{l|}{NS} & \multicolumn{1}{l|}{FM} & \multicolumn{1}{l|}{EC} & \multicolumn{1}{l|}{CA} & \multicolumn{1}{l|}{GC} & \multicolumn{1}{l|}{DP} & U      \\ \midrule
-Lines         & 31.087           & 30.620                       & 29.049                  & 31.956                  & 32.143                  & 32.336                      & 28.981 \\ \cmidrule(l){2-8} 
-10\%          & 25.108                    & 25.284                     & 26.148                  & 24.850                  & 24.844                  & a                       & 24.743 \\ \cmidrule(l){2-8} 
-20\%          & 21.379                   & 21.504                     & 22.508                  & 21.162                  & 20.395                  & a                       & 20.504 \\ \bottomrule
+Lines         & 31.087           & 30.620                       & 29.049                  & 31.956                  & 32.143                  & 29.181                     & 28.981 \\ \cmidrule(l){2-8} 
+10\%          & 25.108                    & 25.284                     & 26.148                  & 24.850                  & 24.844                  & 20.460                     & 24.743 \\ \cmidrule(l){2-8} 
+20\%          & 21.379                   & 21.504                     & 22.508                  & 21.162                  & 20.395                  & 17.012                  & 20.504 \\ \bottomrule
 \end{tabular}
 \caption{PSNR Results}
 \label{tab:PSNRresults}
@@ -375,25 +375,38 @@ Lines         & 31.087           & 30.620                       & 29.049        
 \centering
 \begin{tabular}{@{}l|c|c|c|c|c|c|l@{}}
 \textbf{SSIM} & \multicolumn{1}{l|}{NS} & \multicolumn{1}{l|}{FM} & \multicolumn{1}{l|}{EC} & \multicolumn{1}{l|}{CA} & \multicolumn{1}{l|}{GC} & \multicolumn{1}{l|}{DP} & U     \\ \midrule
-Lines         & 0.949                  & 0.940                    & 0.916                   & 0.945                   & 0.942                   & 0.868                     & 0.907 \\ \cmidrule(l){2-8} 
-10\%          & 0.902                    & 0.902                & 0.911                   & 0.910                   & 0.906                   & a                       & 0.908 \\ \cmidrule(l){2-8} 
-20\%          & 0.813                   & 0.813                      & 0.824                   & 0.826                   & 0.818                   & a                       & 0.824 \\ \bottomrule
+Lines         & 0.949                  & 0.940                    & 0.916                   & 0.945                   & 0.942                   & 0.909                    & 0.907 \\ \cmidrule(l){2-8} 
+10\%          & 0.902                    & 0.902                & 0.911                   & 0.910                   & 0.906                   & 0.761                    & 0.908 \\ \cmidrule(l){2-8} 
+20\%          & 0.813                   & 0.813                      & 0.824                   & 0.826                   & 0.818                   & 0.710                 & 0.824 \\ \bottomrule
 \end{tabular}
 \caption{SSIM Results}
 \label{tab:SSIMresults}
 \end{table}
 
-Furthermore, PSNR and SSIM values for our proposed method, Feature Pyramid GAN and Vanilla GAN for comparison are given in table \ref{tab:PSNRandSSIM}
+\begin{table}[h!]
+\centering
+\begin{tabular}{@{}l|c|c|c|c|c|c|l@{}}
+\textbf{FID} & \multicolumn{1}{l|}{NS} & \multicolumn{1}{l|}{FM} & \multicolumn{1}{l|}{EC} & \multicolumn{1}{l|}{CA} & \multicolumn{1}{l|}{GC} & \multicolumn{1}{l|}{DP} & U     \\ \midrule
+Lines         & 22.820                  & 28.140           & 19.311                   & 16.664                    & 14.851                  & 27.956                     & 25.900 \\ \cmidrule(l){2-8} 
+10\%          & 55.689                 & 62.013            & 26.202                   & 27.093                   & 30.084                 & 65.562                     & 28.025 \\ \cmidrule(l){2-8} 
+20\%          & 89.081                 & 96.290                    & 40.449                   & 42.656                   & 53.499                 & 81.721                     & 43.478 \\ \bottomrule
+\end{tabular}
+\caption{FID Results}
+\label{tab:FIDresults}
+\end{table}
+
+Furthermore, PSNR, SSIM and FID values of our proposed method, Feature Pyramid GAN and Vanilla GAN for comparison are given in table \ref{tab:PSNRandSSIM}.
 
 \begin{table}[]
 \centering
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{l|l|l|l|l|l|l}
-     & Line Vanilla & Line FPN & 10\% Vanilla & 10\% FPN & 20\% Vanilla & 20\% FPN \\ \hline
-PSNR & a            & a        & a            & a        & a            & a        \\ \hline
-SSIM & b            & b        & b            & b        & b            & b       
+\resizebox{0.6\textwidth}{!}{%
+\begin{tabular}{l|l|l}
+     & 10\% Mask Vanilla & 10\% Mask FPN \\ \hline
+PSNR  & 25.277            & 23.331        \\ \hline
+SSIM & 0.905            & 0.900        \\ \hline
+FID  & 40.534            & 59.544         
 \end{tabular}%
 }
-\caption{SSIM and PSNR Results}
+\caption{SSIM, PSNR and FID Results for proposed methods}
 \label{tab:PSNRandSSIM}
 \end{table}
