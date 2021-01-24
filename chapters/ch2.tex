@@ -47,12 +47,12 @@ However, minimizing this equation does not mean that the energy function decreas
 
 In this way, the image inpainting process for the visual is corrected to give a good result from the rough approach. However, this process requires a high processing power due to 3 different partial differential equations.
 
-It is logical to use an approach to solve this problem. With this approach, uniform visual densities can be accepted as constant for different regions. Hence, MS energy function can be reduced to equation \ref{eqn:textsynth4}. Also, an inpainted image example with its input image is given in figure \ref{fig:patch-based-example}.
-
 \begin{equation}
     \label{eqn:textsynth4}
     E(c_k, C) = \sum\limits_{k}\int\limits_{\Omega_k}\lambda(x,y){(c_k,\mu_0)}^2dxy+V|C|
 \end{equation}
+
+It is logical to use an approach to solve this problem. With this approach, uniform visual densities can be accepted as constant for different regions. Hence, MS energy function can be reduced to equation \ref{eqn:textsynth4}. Also, an inpainted image example with its input image is given in figure \ref{fig:patch-based-example}.
 
 \begin{figure}[h]
     \centering
@@ -91,13 +91,13 @@ In the above equation Q represents the targeted patch with w width and height an
 
 Two important steps during the implementation of the algorithm are searching and voting. For the search part, the PatchMatch algorithm is properly used. With using this algorithm, patches with sufficient proximity are detected for the target patch. Translation, rotation and scaling are used freely during this process. At the same time, ranges are defined on the channels in order to obtain better results.
 
-In the Voting part, an algorithm is used in which every pixel in the patch is included, and the resulting output takes its form in eq \ref{eqn:imagemelding2}. In figure \ref{fig:inpainting-image-melding}, Inpainting example with image melding method is given.
-
 \begin{equation}
     \label{eqn:imagemelding2}
     T= argmin(D(I,\bar{T}+\lambda D(\Delta I,\Delta \bar{T}))
     %sYanlislik olabilir mi kontrol et bir ara
 \end{equation}
+
+In the Voting part, an algorithm is used in which every pixel in the patch is included, and the resulting output takes its form in eq \ref{eqn:imagemelding2}. In figure \ref{fig:inpainting-image-melding}, Inpainting example with image melding method is given.
 
 \begin{figure}[h]
     \centering

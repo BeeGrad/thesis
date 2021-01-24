@@ -7,7 +7,7 @@ The reason why deep learning methods are being used more frequently as time prog
 
 Convolutional neural network structures, which are known to be very successful in computer vision studies thanks to their grid-like layer topology, are also used in image inpainting studies and give outstanding results. There are many architectures specially designed for inpainting work.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=10cm]{figures/chapter4/unet.png}
     \vspace*{5mm}
@@ -17,7 +17,7 @@ Convolutional neural network structures, which are known to be very successful i
 
 The U-Net \cite{unet} architecture used in Shift-Net inpainting study \cite{shiftNet} is one of them. The U-Net CNN architecture is shown in figure \ref{fig:u-net}  This architecture takes an image and a mask which shows the missing areas and put them into convolutional layers. It concatenate the output of each layer with the corresponding layer of the same size in symmetrical architecture. The results of this structure achieve excellent success in terms of genereted image structure and fine detail. The architecture of the Shift-Net which is a U-Net with special shift-connections can be seen in figure \ref{fig:shiftNet}
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=13cm]{figures/chapter4/shiftnet.png}
     \vspace*{5mm}
@@ -27,7 +27,7 @@ The U-Net \cite{unet} architecture used in Shift-Net inpainting study \cite{shif
 
 Another popular architecture used in inpainting studies is the encoder-decoder network. Sidorov and Hardeberg \cite{3DCNN} uses a 3D CNN encoder-decoder network architecture and can perform not only inpainting but also tasks such as denoising and super-resolution. In the study of Liu et al. \cite{csa_layer} coherent semantic attention layer designed and used in an encoder-decoder structure called refinement network. This architecture can be seen in figure \ref{fig:csa_layer}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=14cm]{figures/chapter4/csa_layer.png}
     \vspace*{5mm}
@@ -37,7 +37,7 @@ Another popular architecture used in inpainting studies is the encoder-decoder n
 
 In Artist-Net \cite{artistNet} proposed by Liao et al. In order to achive inpainting, two different content encoders, a style encoder used with a joint decoder. Artist-Net architecture can be seen in figure \ref{fig:artistNet}. A similar structure is also available in CNN architecture developed by Cai et al. \cite{semantic_object_removal} for the purpose of semantic object removal. There are also context encoder \cite{context_encoders} architectures used in inpainting studies. These context encoders basically CNNs trying to generate the missing parts of an image from their surroundings.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=14cm]{figures/chapter4/artist.png}
     \vspace*{4mm}
@@ -47,7 +47,7 @@ In Artist-Net \cite{artistNet} proposed by Liao et al. In order to achive inpain
 
 Zeng et al. \cite{pyramid_network} used Pyramid-context encoder network to perform inpainting. This pyramidal arthitecture called PEN-Net performs a high quality inpainting operation. The network structure can be seen in figure \ref{fig:pennet}. Nakamura et al. \cite{nakamura} aimed to remove the text from images and achieved excellent results using CNN. 
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=14cm]{figures/chapter4/pyramid.png}
     \vspace*{5mm}
@@ -60,7 +60,7 @@ Zeng et al. \cite{pyramid_network} used Pyramid-context encoder network to perfo
 With different deep learning methods that have been tried over time, it has been analyzed that some methods give more successful results. It can be said that CNN and GAN based methods are better in evaluating realistic results in images. In this section, methods based on GAN idea will be explained. \newline
 In the paper, Context Encoder: Feature Learning by Inpainting \cite{context_encoders}, it is shown that an encoder-decoder architecture, first create a feature space with its encoder. Then, the decoder uses that space the create realistic inpainted output image. Moreover, using different losses altogether shows significantly better and more realistic results could be constructed. Figure \ref{fig:context-encoder} illustrates the structure of Context Encoder.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.5]{figures/chapter4/context-encoder-example.png}
     \caption{Context Encoder Structure \cite{context_encoders}}
@@ -69,7 +69,7 @@ In the paper, Context Encoder: Feature Learning by Inpainting \cite{context_enco
 
 In addition to this study, different methods have been proposed to solve different problems. To prevent blurry parts in the created pictures, using less downsampling layers are proposed by lizuka et al \cite{Iizuka2017}. Furthermore, using dilated convolution layers instead of fully connected layers are proposed by Yu and Koltun \cite{dilated_conv}. Unfortunately, these changes led to longer training times because of highly sparse filters generated by dilation element. Structure example with dilated convolution layers are presented in figure \ref{fig:dilated-model}. Gated and dilated gated convolutional layers used in a image completion study SC-FEGAN \cite{scfegan}. In this study authors built GAN-based system in order to complete masked input images with respect to the given sketches.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.35]{figures/chapter4/Lizukaetal.PNG}
     \vspace*{5mm}
@@ -91,7 +91,7 @@ Different methods are also used such as using a pre-trained VGG network which le
 
 The novel idea that we actively use in our study and that provides the most successful results for the inpainting operation is the introduction of Generative Adversarial Networks asserted by Yeh et al \cite{semantic_inpainting_geneative}. Fundamental idea behind GAN is illustrated in Figure \ref{fig:gan-idedal} for an image related problem.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.7]{figures/chapter4/GANinpainting.PNG}
     \caption{GAN Idea \cite{semantic_inpainting_geneative}}
@@ -107,7 +107,7 @@ Different methods that use GAN structures and add many innovations to this struc
 
 Nazeri et al. proposed a method \cite{edgeconnect} that uses edge information to produce realistic output images over missing zones.  EdgeConnect consists of 2 different GANs placed one behind the other. The first of these GANs tries to create the missing edge information over the masked image, and the second GAN structure complements the missing image by using this created edge information and the original masked image. Fundamental idea of the structure is shown in Figure \ref{fig:edgeconnect-network}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.6]{figures/chapter4/EdgeConnect.PNG}
     \vspace*{5mm}
@@ -117,7 +117,7 @@ Nazeri et al. proposed a method \cite{edgeconnect} that uses edge information to
 
 With this method, Yu et al want to solve some of the basic problems that arise in the inpainting process. Using the edge information, it is desired to create visuals with sharper borders. Figure \ref{fig:edgeconnect-example} demonstrates a few examples of inpainted images with EdgeConnect.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.85]{figures/chapter4/ExampleEdgeConnect.PNG}
     \vspace*{5mm}
@@ -206,7 +206,7 @@ Activation maps that are used in perceptual loss are also used in style loss whi
 One of the main problems in inpainting methods is that they create blurry and distorted parts in the missing regions. To prevent this, Yu et al. came up with Generative Image inpainting with Contextual Attention \cite{generative_contextual}.
 Generative image inpainting with contextual attention consists of 2 main stages which are called Coarse Network and Refinement Network. Model structure is illustrated in figure \ref{fig:contextual-structure}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.4]{figures/chapter4/GenerativeOverview.PNG}
     \vspace*{3mm}
@@ -217,7 +217,7 @@ Generative image inpainting with contextual attention consists of 2 main stages 
 Coarse Network uses a method similar to the encoder and decoder structure like many methods previously described. In this part, an inpainted image is created over the missing part by using the GAN structure. \newline
 The main idea of this study lies in Refinement network. The image created in this section progresses on 2 different paths, then the outputs of these 2 different paths are combined to achieve the desired improved result. Refinement network is shown in more detail in figure \ref{fig:refinement-network}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.85]{figures/chapter4/GenerativeAttention.PNG}
     \caption{Refinement Network \cite{generative_contextual}}
@@ -226,7 +226,7 @@ The main idea of this study lies in Refinement network. The image created in thi
 
 In the first of these 2 paths, there is a structure consisting of dilated convolution and normal convolution layers. In the other and more important structure, there is a layer called Contextual Attention Layer that performs attention perception through the color map on the picture. In this layer, the picture is divided into patches and compared and evaluated. Algorithm in attention scoring is explained in Figure \ref{fig:attention-scoring}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.85]{figures/chapter4/GenerativeScoring.PNG}
     \caption{Refinement Network \cite{generative_contextual}}
@@ -235,6 +235,7 @@ In the first of these 2 paths, there is a structure consisting of dilated convol
 
 The Generative Contextual Attention Model has common similarities with the Edge connect model in terms of training. But there are critical differences due to the model type as expected. 
 
+\newpage
 \subsubsection{Contextual Attention}
 
 Contextual attention layer can fill the masked areas by using the feature information obtained from the unchanged parts of the image. For this, firstly, it divides the unmasked region expressed as background into patches and organizes it as a convolutional filter. Then it is put into the cosine similarity operation shown in equation [] with patches in the masked region expressed as foreground.
@@ -253,7 +254,7 @@ In the article \cite{inpainting_via_multi_cnn}, the inpainting process is presen
 
 This inpainting system has a structure that can be trained from begining to end. It first receives an image and a binary mask as input. The pixels to be masked are denoted by 1 and known pixels by 0. Then the image masked by the  operation and inserted into the network. The result of the network is a completed image. Network structure is as shown in the figure \ref{fig:gmcnn}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=14cm]{figures/chapter4/gmcnn.png}
     \caption{Network structure of the GMCNN \cite{inpainting_via_multi_cnn}}
@@ -266,7 +267,7 @@ To calculate loss during model training, a mixture of three loss functions used.
 
 ID-MRF stands for implicit diversified Markov random fields. This loss function is used to train with a path similarity based approach within a VGG structure fed with generated results. This method, which is used only during the training phase, is a metric used to measure the similarity between the randomly selected patches between generated pixel areas and the ground truth area pixel areas. A simple similarity measure like cosine similarity can be used to compute this process. This metric measures the similarity between the generated content and the random selected nearest-neighbor patches. But using cosine similarity measurement has some limitations. As seen in the figure \ref{fig:cosine_similarity}.a, the results often become like blurry textures and for large masking areas this can become a serious problem.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=13cm]{figures/chapter4/cosine_similarity.png}
     \caption{Cosine similarity vs. Relative similarity \cite{inpainting_via_multi_cnn}}
@@ -283,7 +284,7 @@ In this article, in order to eliminate this problem, a relative similarity measu
 \(\mu (v, s)\) in the equation represents cosine similarity between patch \(v\) from generated area and patch \(s\) from ground truth area, the  and  values are constants, and  represents the features on the \(L^{th}\) layer of the pre-trained VGG network. To be more precise, let generated content denoted as and is the corresponding ground truth, for any layer L, ID-RMF loss can be calculated as equation in the equation \ref{eq:idrmf_loss}.
 
 \begin{equation}
-    \mathfrak{L}_{M}(L) = - log(\frac{1}{z} \sum_{s \in Y^{L}} \max_{v \in \widehat{Y}_{g}^{L}} \overline{RS} (v, s))
+    \mathcal{L}_{M}(L) = - log(\frac{1}{z} \sum_{s \in Y^{L}} \max_{v \in \widehat{Y}_{g}^{L}} \overline{RS} (v, s))
     \label{eq:idrmf_loss}
 \end{equation}
 
@@ -294,10 +295,10 @@ The \(\overline{RS}\) is the normalized relative similarity as in the equation \
     \label{eq:normalized_rs}
 \end{equation}
 
-If all \(r\) patches in the \(\widehat{Y}_{g}^{L}\) are close to only one spesific patch and far from other patches in ground truth, relative similarity becomes small and leads to a big loss value \(\mathfrak{L}_{M}(L)\). On the other hand if every \(r\) patch from generated image has a similar corresponding \(s\) patch in ground truth image, relative similarity becomes big and leads to a small loss value. One of the biggest contributions of this measure is to increase the similarity between the \(Y^{L}\) and \(\widehat{Y}_{g}^{L}\) features. While minimizing the loss, generated feature distrubution and ground truth feature distrubution approach each other. As a result, in the inpainting regions blurry texture problem is overcome and variation is achieved.
+If all \(r\) patches in the \(\widehat{Y}_{g}^{L}\) are close to only one spesific patch and far from other patches in ground truth, relative similarity becomes small and leads to a big loss value \(\mathcal{L}_{M}(L)\). On the other hand if every \(r\) patch from generated image has a similar corresponding \(s\) patch in ground truth image, relative similarity becomes big and leads to a small loss value. One of the biggest contributions of this measure is to increase the similarity between the \(Y^{L}\) and \(\widehat{Y}_{g}^{L}\) features. While minimizing the loss, generated feature distrubution and ground truth feature distrubution approach each other. As a result, in the inpainting regions blurry texture problem is overcome and variation is achieved.
 
 \begin{equation}
-    \mathfrak{L}_{mrf} = \mathfrak{L}_{M}(conv4 \_ 2) + \sum_{t = 3}^{4} \mathfrak{L}_{M}(conv \mathbf{t} \_ 2)
+    \mathcal{L}_{mrf} = \mathcal{L}_{M}(conv4 \_ 2) + \sum_{t = 3}^{4} \mathcal{L}_{M}(conv \mathbf{t} \_ 2)
     \label{eq:Lmrf}
 \end{equation}
 
@@ -313,7 +314,7 @@ A pixel-wise working reconstruction loss has been developed as a spacial variant
 \(g\) represents a \(64 \times 64\) gaussian filter with standart deviation of 40 and \(\odot\) is the Hadamard product operator. Hadamard product means element-wise multiplication of the matrices. Loss weight mask \(M_{\omega}\) is obtained by repeating the equation \ref{eq:gaussian_filter} several times. Lastly the reconstruction loss calculated with the formula in \ref{eq:reconstruction_loss}.
 
 \begin{equation}
-    \mathfrak{L}_{c} = \left \| (Y - G([X, M]; \theta )) \odot M_{\omega} \right \|_{1}
+    \mathcal{L}_{c} = \left \| (Y - G([X, M]; \theta )) \odot M_{\omega} \right \|_{1}
     \label{eq:reconstruction_loss}
 \end{equation}
 
@@ -322,21 +323,21 @@ In equation \ref{eq:reconstruction_loss}, \(G([X, M]; \theta )\) represents the 
 Adversarial loss is used frequently in many tasks such as inpainting missing pixels. In this architecture, improved Wasserstein GAN \cite{improved_train_wgan} is used as a generator and one local and one global structure are used together as a discriminator. Reason for using two discriminators is to overcome the problem when generated areas are realistic and low loss but ill-matched with the rest of the image. The adversarial loss function is defined as in equation \ref{eq:adversarial_loss}, where \(\widehat{X} = tG([X, M]; \theta) + (1 - t) Y\) and \(t \in [0, 1]\).
 
 \begin{equation}
-    \mathfrak{L}_{adv} = - E_{X \sim \mathbb{P}_{x}}[D(G(X;\theta))] + \lambda_{gp} E_{\widehat{X} \sim \mathbb{P}_{\widehat{x}}}[(\left \| \nabla_{\widehat{X}} D(\widehat{X}) \odot M_{\omega} \right \|)_{2} - 1)^{2}]
+    \mathcal{L}_{adv} = - E_{X \sim \mathbb{P}_{x}}[D(G(X;\theta))] + \lambda_{gp} E_{\widehat{X} \sim \mathbb{P}_{\widehat{x}}}[(\left \| \nabla_{\widehat{X}} D(\widehat{X}) \odot M_{\omega} \right \|)_{2} - 1)^{2}]
     \label{eq:adversarial_loss}
 \end{equation}
 
 Finally, the three loss functions mentioned above are combined together with different weights denoted as \(\lambda_{mrf}\) and \(\lambda_{adv}\) in equation \ref{eq:total_loss}. Regularization of the model achieved in training process.
 
 \begin{equation}
-    \mathfrak{L} = \mathfrak{L}_{c} + \lambda_{mrf} \mathfrak{L}_{mrf} + \lambda_{adv} \mathfrak{L}_{adv}
+    \mathcal{L} = \mathcal{L}_{c} + \lambda_{mrf} \mathcal{L}_{mrf} + \lambda_{adv} \mathcal{L}_{adv}
     \label{eq:total_loss}
 \end{equation}
 
 As a comparison with GMCNN, two other CNN-based inpainting architectures selected under same conditions with the same losses and same hyperparameters. A single encoder-decoder network and the previously mentioned contextual attention coarse network \cite{generative_contextual} tested alongside with the GMCNN. Results are shown in figure \ref{fig:gmcnn_paris_comparison}. In \ref{fig:gmcnn_paris_comparison}.b, output of a single encoder-decoder network is shown. In \ref{fig:gmcnn_paris_comparison}.c, output of the contextual attention
 coarse network is shown. Lastly, in figures \ref{fig:gmcnn_paris_comparison}.d and \ref{fig:gmcnn_paris_comparison}.e output of the GMCNN can be seen. Yhe former is the network with the fixed receptive fields and the latter is with varied receptive fields.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=14cm]{figures/chapter4/gmcnn_paris_comparison.png}
     \caption{Comparison between GMCNN and CNN-based methods \cite{inpainting_via_multi_cnn}}
@@ -345,7 +346,7 @@ coarse network is shown. Lastly, in figures \ref{fig:gmcnn_paris_comparison}.d a
 
 Also our results with the GMCNN using a pretrained network, achieved great looking outputs with two different datasets. Places \cite{dataset_places} dataset and CelebA \cite{celebA} dataset outputs can be seen in the figures \ref{fig:gmcnn_places2} and \ref{fig:gmcnn_celebA} respectively.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=14cm]{figures/chapter4/gmcnnout2.png}
     \vspace*{3mm}
@@ -355,7 +356,7 @@ Also our results with the GMCNN using a pretrained network, achieved great looki
 
 As a limitation, like most of the generative neural networks this network also struggle with large datasets with diverse classes such as ImageNet. It is a harsh challange to inpaint different objects and places with one pre-trained model.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=14cm]{figures/chapter4/gmcnnout1.png}
     \vspace*{3mm}
@@ -407,7 +408,7 @@ As mentioned, choosing a regularizer \(R(x)\) that can catch general priors in i
 
 \(\theta^{\ast}\) is the minimizer achieved with the help of the gradient descent optimizer from random parameter values. Result of the inpainting process denoted as \(x^{\ast}\) is given in equation \ref{eq:prior_theta}. It is also possible to apply minimazation on the code tensor \(z\). However here \(z\) is a fixed three dimensional tensor containing 32 feature maps of uniform noise with the same spatial size as \(x\).
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=13cm]{figures/chapter4/imprior1.png}
     \caption{Comparison between Shepard Network and Deep Image Prior \cite{shepard_nn}, \cite{deep_image_prior}}
@@ -416,7 +417,7 @@ As mentioned, choosing a regularizer \(R(x)\) that can catch general priors in i
 
 In the figure \ref{fig:prior_shepard_comparison} deep image prior method compared with Shepard Neural Networks \cite{shepard_nn} which is particularly designed for inpainting applications. Using a black text as a mask, this method demonstrates astonishing results. While in the output of the Shepard network remainings of the mask can be seen, in the output of the deep image prior method there are almost no artifacts.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=13cm]{figures/chapter4/imprior2.png}
     \caption{Comparison between Convolutional Dictionary Learning and Deep Image Prior \cite{conv_dict_learning}, \cite{deep_image_prior}}
@@ -427,7 +428,7 @@ In another experiment, deep image prior is compared with Convolutional Dictionar
 
 Apart from the inpainting study of small pixel regions, a large region inpainting process was also tested and deep image prior method has shown great success again. Although deep image prior method works great for variety of images, as a limitation it works poorly while inpainting large masked areas of the images which have highly semantic information such as face images due to being a learning-free method.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=13cm]{figures/chapter4/imprior3.png}
     \caption{Comparison between Global-Local GAN and Deep Image Prior \cite{Iizuka2017}, \cite{deep_image_prior}}
@@ -438,7 +439,7 @@ Result of the inpainting of a large masked region with deep image prior method i
 
 As mentioned, deep image prior is a method which can be applied onto any network architecture, the results obtained are highly dependent on the network structure used. In figure \ref{fig:prior_multimodels}, deep image prior method applied on different neural networks. From the results, it can be concluded that deeper networks have positive effect on the inpainting solution. However, having skip-connections which can significantly improve image recognition tasks shows extremely harmful behaviour in inpainting process as seen in figure \ref{fig:prior_multimodels}.e and \ref{fig:prior_multimodels}.f where skip-connections added to the ResNet \cite{deep_residual_recognition} and U-Net \cite{unet} architectures.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=13cm]{figures/chapter4/imprior4.png}
     \caption{Deep Image Prior results on different networks \cite{deep_image_prior}}
@@ -447,7 +448,7 @@ As mentioned, deep image prior is a method which can be applied onto any network
 
 In figures \ref{fig:prior_multimodels}.b, \ref{fig:prior_multimodels}.c and \ref{fig:prior_multimodels}.d an encoder-decoder architectures used with depth size of 6, 4, and 2 respectively. Figure \ref{fig:prior_multimodels}.e is the output of the ResNet with skip layers and with depth of 8. Figure \ref{fig:prior_multimodels}.f is the output of the U-Net structure with skip layers and depth of 5. Finally, we tested the Deep Image Prior method using a encoder-decoder network and achieved quite enough results. Figure \ref{fig:prior_lenna} shows the output of the image 512x512 image with mask we generated after 1000 iteration.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=14cm]{figures/chapter4/impriorout.png}
     \vspace*{3mm}

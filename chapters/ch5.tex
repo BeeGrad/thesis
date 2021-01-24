@@ -13,7 +13,7 @@ Implementing Deep Learning models is always a challenge. For this purpose, we us
 \end{figure}
 
 Example visual results and mathematical results over a validation dataset for different types of masks are represented in the following sections.  
-
+\newpage
 \section{Framework}
 
 One of the key points in our study was to create a model that allows many different models to work together. In order to achieve this, we had to create a framework that is easily accessible by different models and consists of parts that generate standard types of feedback. In this way, we would have obtained a modular structure where it is easy to make changes and incorporate new ideas. General structure of our framework is shown in Figure \ref{fig:framework}.
@@ -77,12 +77,14 @@ Image inpainting, unfortunately, is not a method whose success can be fully cont
 
 \section{Our Contribution}
 
+In addition to the examined methods, two new methods are proposed and implemented in our project called, Unified Contextual-Edge Model and FPN GAN Model.
+
 \subsection{Unified Contextual-Edge Model}
 During our literature review we studied a model by Yu et al. which is called Free-Form Image Inpainting with Gated Convolution \cite{freeform_inpainting}. In this model, there are 3 main stages as shown in the Figure \ref{fig:freeform}.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.5]{figures/chapter5/Free-form.PNG}
+    \includegraphics[scale=0.7]{figures/chapter5/Free-form.PNG}
     \vspace*{3mm}
     \caption{Free-form Image Inpainting Example \cite{freeform_inpainting}}
     \label{fig:freeform}
@@ -159,7 +161,7 @@ In the models we use throughout this project uses single feature map structure g
     \label{fig:fpnexample}
 \end{figure}
 
-\newpage
+\clearpage
 \section{Test Results}
 
 In this section, visual and analytical comparisons of implemented models are shown.
@@ -327,7 +329,7 @@ In this section, visual and analytical comparisons of implemented models are sho
         \caption{Example Inpainting Comparison 7}
     \label{fig:test1}
 \end{figure}
-
+\clearpage
 \begin{figure}[!ht]
     \centering
         \subfloat[Input Image]{\includegraphics[width=0.22\columnwidth]{figures/chapter5/tests/itu5.jpg}}
@@ -350,20 +352,19 @@ In this section, visual and analytical comparisons of implemented models are sho
     \label{fig:test1}
 \end{figure}
 %%%
-\newpage
 
 % \usepackage{booktabs}
 % Please add the following required packages to your document preamble:
 % \usepackage{booktabs}
 
 Mentioned models are tested with Place2 validation data over 3 different masking types. One of the masks is a mask with an arbitrary line goes over the image. The other 2 masks are rectangles that cover a certain percentage over the image which are 10\% and 20\%. Analytical comparisons according to PSNR and SSIM values are given in \ref{tab:PSNRresults} and \ref{tab:SSIMresults} while NS, FM, EC, CA, GC, DP, U represents Navier-Strokes, Fast-Marching, EdgeConnect, Contextual Attention, GMCNN, Deep Prior and Unified models respectively.
-
-
-\begin{table}[h!]
+\vspace*{2mm}
+%
+\begin{table}[!h]
 \centering
 \begin{tabular}{@{}l|c|c|c|c|c|c|l@{}}
-\textbf{PSNR} & \multicolumn{1}{l|}{NS} & \multicolumn{1}{l|}{FM} & \multicolumn{1}{l|}{EC} & \multicolumn{1}{l|}{CA} & \multicolumn{1}{l|}{GC} & \multicolumn{1}{l|}{DP} & U      \\ \midrule
-Lines         & 31.087           & 30.620                       & 29.049                  & 31.956                  & 32.143                  & 29.181                     & 28.981 \\ \cmidrule(l){2-8} 
+\textbf{PSNR} & \multicolumn{1}{c}{NS} & \multicolumn{1}{c}{FM} & \multicolumn{1}{c}{EC} & \multicolumn{1}{c}{CA} & \multicolumn{1}{c}{GC} & \multicolumn{1}{c}{DP} & \multicolumn{1}{c}{U}  \\ \midrule
+Lines     & 31.087   & 30.620   & 29.049   & 31.956   & 32.143  & 29.181  & 28.981 \\ \cmidrule(l){2-8} 
 10\%          & 25.108                    & 25.284                     & 26.148                  & 24.850                  & 24.844                  & 20.460                     & 24.743 \\ \cmidrule(l){2-8} 
 20\%          & 21.379                   & 21.504                     & 22.508                  & 21.162                  & 20.395                  & 17.012                  & 20.504 \\ \bottomrule
 \end{tabular}
@@ -371,10 +372,12 @@ Lines         & 31.087           & 30.620                       & 29.049        
 \label{tab:PSNRresults}
 \end{table}
 
-\begin{table}[h!]
+\newpage
+
+\begin{table}[!h]
 \centering
 \begin{tabular}{@{}l|c|c|c|c|c|c|l@{}}
-\textbf{SSIM} & \multicolumn{1}{l|}{NS} & \multicolumn{1}{l|}{FM} & \multicolumn{1}{l|}{EC} & \multicolumn{1}{l|}{CA} & \multicolumn{1}{l|}{GC} & \multicolumn{1}{l|}{DP} & U     \\ \midrule
+\textbf{SSIM} & \multicolumn{1}{c}{NS} & \multicolumn{1}{c}{FM} & \multicolumn{1}{c}{EC} & \multicolumn{1}{c}{CA} & \multicolumn{1}{c}{GC} & \multicolumn{1}{c}{DP} & \multicolumn{1}{c}{U}     \\ \midrule
 Lines         & 0.949                  & 0.940                    & 0.916                   & 0.945                   & 0.942                   & 0.909                    & 0.907 \\ \cmidrule(l){2-8} 
 10\%          & 0.902                    & 0.902                & 0.911                   & 0.910                   & 0.906                   & 0.761                    & 0.908 \\ \cmidrule(l){2-8} 
 20\%          & 0.813                   & 0.813                      & 0.824                   & 0.826                   & 0.818                   & 0.710                 & 0.824 \\ \bottomrule
@@ -386,7 +389,7 @@ Lines         & 0.949                  & 0.940                    & 0.916       
 \begin{table}[h!]
 \centering
 \begin{tabular}{@{}l|c|c|c|c|c|c|l@{}}
-\textbf{FID} & \multicolumn{1}{l|}{NS} & \multicolumn{1}{l|}{FM} & \multicolumn{1}{l|}{EC} & \multicolumn{1}{l|}{CA} & \multicolumn{1}{l|}{GC} & \multicolumn{1}{l|}{DP} & U     \\ \midrule
+\textbf{FID} & \multicolumn{1}{c}{NS} & \multicolumn{1}{c}{FM} & \multicolumn{1}{c}{EC} & \multicolumn{1}{c}{CA} & \multicolumn{1}{c}{GC} & \multicolumn{1}{c}{DP} & \multicolumn{1}{c}{U}     \\ \midrule
 Lines         & 22.820                  & 28.140           & 19.311                   & 16.664                    & 14.851                  & 27.956                     & 25.900 \\ \cmidrule(l){2-8} 
 10\%          & 55.689                 & 62.013            & 26.202                   & 27.093                   & 30.084                 & 65.562                     & 28.025 \\ \cmidrule(l){2-8} 
 20\%          & 89.081                 & 96.290                    & 40.449                   & 42.656                   & 53.499                 & 81.721                     & 43.478 \\ \bottomrule
@@ -395,18 +398,20 @@ Lines         & 22.820                  & 28.140           & 19.311             
 \label{tab:FIDresults}
 \end{table}
 
-Furthermore, PSNR, SSIM and FID values of our proposed method, Feature Pyramid GAN and Vanilla GAN for comparison are given in table \ref{tab:PSNRandSSIM}.
+Furthermore, PSNR, SSIM and FID values of our proposed method with 10\% rectangle masks, Feature Pyramid GAN and Vanilla GAN for comparison are given in table \ref{tab:PSNRandSSIM}.
+\vspace*{3mm}
 
-\begin{table}[]
+\begin{table}[!h]
 \centering
-\resizebox{0.6\textwidth}{!}{%
-\begin{tabular}{l|l|l}
-     & 10\% Mask Vanilla & 10\% Mask FPN \\ \hline
+\resizebox{0.34\textwidth}{!}{%
+\begin{tabular}{@{}l|c|l@{}}
+& Vanilla &  FPN \\ \hline
 PSNR  & 25.277            & 23.331        \\ \hline
 SSIM & 0.905            & 0.900        \\ \hline
 FID  & 40.534            & 59.544         
 \end{tabular}%
 }
-\caption{SSIM, PSNR and FID Results for proposed methods}
+\vspace*{2mm}
+\caption{SSIM, PSNR and FID results for proposed methods}
 \label{tab:PSNRandSSIM}
 \end{table}

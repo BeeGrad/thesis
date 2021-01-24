@@ -16,7 +16,7 @@ There are billions of neurons in a human brain. These neurons communicate with e
 
 As with a real neuron, a neuron in the ANN also functions similarly. The neurons in the ANN simply take the input they receive and process this data and then give an output. Each neuron in the network has its own parameters called weights. This decision-making process produces an output yes or no. Hence, it is possible to call this process a classifier. Similar to a neuron function, a threshold function is illustrated in figure \ref{fig:threshold}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.7]{figures/chapter3/threshol.png}
     \caption{Threshold Function}
@@ -25,7 +25,7 @@ As with a real neuron, a neuron in the ANN also functions similarly. The neurons
 
 There are different numbers of layers in ANN depending on their size. Neurons transmit their output from each layer to the next layer. As will be explained later, the output from each neuron is inserted into activation functions to ensure non-linearity within the system. Neuron structure is shown in figure \ref{fig:neuron_drawl}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.5]{figures/chapter3/neuron.png}
     \caption{Neuron}
@@ -57,7 +57,7 @@ Perceptron consists of 4 basic parts as input value, weight, bias and activation
 
 As was the case when neural networks were first launched, the perceptron could not achieve the expected success due to technical limitations. There are 2 types of Perceptron models which are called single-layered perceptron model and multi-layered perceptron model. It contains a feedforward network within the single-layer perceptron model. It is the simplest neural network that can be implemented. An illustration of a Feed-Forward network stucture is shown in \ref{fig:feed-forwardl}
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.45]{figures/chapter3/FeedForward.png}
     \vspace*{5mm}
@@ -69,7 +69,7 @@ As seen in Figure \ref{fig:feed-forwardl}, each neuron in the first stage is con
 
 It is also pretty significant to state that single-layered perceptron models are only applicable to problems with linearly separable classes. Later on in the future, it is discovered that multi-layered perceptron networks can be used for non-linearly separable problems. Data distributions for different problems are given in figure \ref{fig:data-diff-dist}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics{figures/chapter3/linear-nonlinear-seperable.png}
     \caption{Data with Different Distributions\cite{sepdata}}
@@ -99,7 +99,7 @@ Algorithms that try to minimize the output of the loss function by changing the 
 
 Activation function is a spesific function for calculating the output of a single neuron in the neural network. Problems which are linearly non-seperable can be solvable using non-linear activation functions such as sigmoid, hyperbolic tangent (tanh), and ReLU. In concolutional layers ReLU activation function is commonly used. The main advantage of this activation function is that while casting negative neuron output values to zero it allows a regularization in the network via not activating every neuron. These mentioned activation functions can be seen in figure \ref{fig:activation_functions}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=10cm]{figures/chapter3/activation_functions.png}
     \caption{Activation Functions \cite{activation_functions}}
@@ -112,7 +112,7 @@ Convolutional Neural Network is a widely used neural network architecture, espec
 
 In the convolution layers, as seen in the figure \ref{fig:convolution}, 2D convolution is done between a tensor and the specified filter. In tasks such as inpainting where colored RGB images are used, these filters are applied separately to each color channel. During the convolution process while applying these filters which usually have 3x3, 5x5, or 7x7 size kernel onto matrix, on the borders padding process is applied. During this process, padding determines the course of action when values that are outside the limit and do not exist are desired to be accessed by convolution operation.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=10cm]{figures/chapter3/convolution.png}
     \caption{2D Convolution \cite{convolution_pooling}}
@@ -121,7 +121,7 @@ In the convolution layers, as seen in the figure \ref{fig:convolution}, 2D convo
 
 Pooling layers, generally following the convolutional layers, reduce the size of the resulting tensor. In many convolutional neural networks, max pooling is used, but there are also min pooling and average pooling layers. The given tensor is divided into smaller pieces and a new and smaller tensor is obtained by taking the maximum, minimum or mean value of each sub-piece according to the chosen method. In figure \ref{fig:pooling}, average-pooling and max-pooling methods are shown.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=10cm]{figures/chapter3/pooling.png}
     %\vspace{5cm} % gerekirse kullanabiliriz.
@@ -137,7 +137,7 @@ There are two CNN architectures commonly used for deep inpainting studies. First
 
 To explain briefly, encoder network can be in fully connected structure or convolutional structure or even as recurrent neural network (RNN) structure \cite{rnn_seq2seq}. An encoder network will take input and output a feature map which is simply a vector or more generally a tensor. This feature vector holds the necessary and important feature information about the input. The decoder network is usually the same network architecture as a encoder but in reverse. It takes a feature vector and tries to generate the input as closest as possible. Encoder-decoder network consist of two network parts which are a encoder and a decoder. Input processed through these structures. These network structures can be used in various areas such as language translation \cite{google_translate} and in computer vision applications as generative models. Mentioned model architecture can be seen in figure \ref{fig:encoder_decoder}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=10cm]{figures/chapter3/encoder-decoder.png}
     \vspace*{5mm}
@@ -149,7 +149,7 @@ To explain briefly, encoder network can be in fully connected structure or convo
 
 Autoencoder is a structure that aims to establish a connection between input and output by obtaining a code in hidden layers. The code concept here can be considered similar to the feature vector in encoder-decoder network structures. The most typical use of autoencoders is dimension reduction. Autoencoder structured neural networks can be used in unsupervised non-linear dimension reduction applications. In figure \ref{fig:autoencoder_vs_pca} a comparison between a traditional dimension reduction method PCA \cite{pca} and a autoencoder structure.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=9cm]{figures/chapter3/autoencoder_vs_pca.png}
     \caption{Autoencoder vs. PCA dimension reduction task \cite{autoencoder_vs_pca}}
@@ -158,7 +158,7 @@ Autoencoder is a structure that aims to establish a connection between input and
 
 By training the autoencoders it becomes possible to ignore the noise in data. For instance, it can be used in anomaly detection application over any signal \cite{anomaly_detection1} \cite{anomaly_detection2}. Another example application would be to create a noiseless image from a noisy image by obtaining the most important features while ignoring the noise \cite{denoising}. This application is called denoising which is a popular inverse problems in computer vision studies. Learning in autoencoder structures is actually possible with an encoder that can best describe the input image and a decoder that can give an output as similar as possible to the original image using this description from former encoder structure. A convolutional autoencoder network structure designed for the image classification application is shown in the figure \ref{fig:mnist_autoencoder}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[width=13cm]{figures/chapter3/mnist_autoencoder.png}
     \vspace*{3mm}
@@ -174,7 +174,7 @@ As machine learning methods and specifically neural network and deep learning me
 
 It is possible to categorize methods of machine learning under 2 main categories, which are supervised and unsupervised learning. Even, it is possible to obtain successful results with supervised learning labeling huge amount of data is not economical and highly time consuming or in some cases it is not possible. Basically, the basic idea behind the emergence of the generative models is that there is no possible data that can be compared with output, or rather, the desired output does not have a correct answer to compare. Objectives of generator an discriminator models is given in figure \ref{fig:gan1}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.5]{figures/chapter3/generative-vs-discriminative-example.png}
     \vspace*{3mm}
@@ -184,7 +184,7 @@ It is possible to categorize methods of machine learning under 2 main categories
 
 There are different type of generative methods in machine learning. Most generative models developed over Markov chain and maximum likelihood estimation. Also, there are generative models such as Restricted Boltzmann Machine \cite{Boltzman} and Deep Belief Network \cite{deepbelief}.  A new model called Generative Adversarial Networks (GANs) is proposed by Ian Goodfellow \cite{gan} and it has been used in various problems in the area of computer vision.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics{figures/chapter3/gan-references-over-years.png}
     \vspace*{3mm}
@@ -200,7 +200,7 @@ As explained by Goodfellow \cite{gan}, within the GAN structure there are 2 netw
 
 From this point of view, it can be said that the Generative and Discriminator structures correspond to the minimax two-player game. Also, if G and D are constructed as perceptrons with multilayers, it can be said that the backpropagation can be used to train the whole structure. Simplified structure of GAN can be seen in figure \ref{fig:ganstruct}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.55]{figures/chapter3/GAN.png}
     \vspace*{3mm}
@@ -221,7 +221,7 @@ When implemented, it can be seen that Equation \ref{eqn:minmax} could not give s
 
 To exemplify the success of GAN structures, examples of faces produced by this method in different years are shown in Figure \ref{fig:gan-success}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics{figures/chapter3/gan-success-over-years.png}
     \vspace*{3mm}
@@ -235,13 +235,13 @@ Deep Convolutional Generative Adversarial Network \cite{dcgan}, shortly DCGAN, i
 
 DCGAN is an important development in terms of having more successful and high quality generators. At the same time, this structure has helped the emergence of many different types of GAN structures. Overall stcuture of DCGAN is illustrated in figure \ref{fig:dcgan}.
 
-\begin{figure}[h]
+\begin{figure}[h!]
     \centering
     \includegraphics[scale=0.8]{figures/chapter3/dc-gan-structure.png}
     \caption{DCGAN Structure \cite{dcgan}}
     \label{fig:dcgan}
 \end{figure}
-
+\newpage
 \subsection{Wasserstein GAN}
 
 As GAN applications become widespread, different types of GAN structures have started to emerge. One of them is the Wasserstein GAN structure. This GAN structure both increases the stability of the GAN and provides the use of a loss function better related to the quality of the images produced.
