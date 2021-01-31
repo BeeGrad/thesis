@@ -1,4 +1,4 @@
-\chapter{INTRODUCTION TO MACHINE LEARNING }\label{intro_to_ml}
+\chapter{INTRODUCTION TO MACHINE LEARNING}\label{intro_to_ml}
 
 \section{Machine Learning}
 
@@ -8,7 +8,7 @@ Deep learning is a subclass of the much broader area of machine learning applica
 
 \section{Neural Networks}
 
-The idea of a neural networks are although they could not be realized efficiently for a long time, is an idea in machine learning field that emerged more than 70 years ago, and represents a similarity to neurons in the human brain. First neural network is created by McCulloch an Pitts, however they did not have enough technology to run it. Later in 1954, Clark and Farley in MIT were able to run the first Neural Network.
+The idea of a neural networks are although they could not be realized efficiently for a long time, is an idea in machine learning field that emerged more than 70 years ago, and represents a similarity to neurons in the human brain. First neural network is created by McCulloch and Pitts, however they did not have enough technology to run it. Later in 1954, Clark and Farley at MIT were able to run the first Neural Network.
 
 The main feature that enables neural networks to work is that they are made of neurons. These neurons are similar to neurons in the human brain. The basic requirement for understanding how neural networks work is to understand how neurons in the human brain work and how it connects to Artificial Neural Networks (ANN).
 
@@ -55,7 +55,7 @@ Mainly perceptron is a machine learning algorithm that classifies an input. Perc
 
 Perceptron consists of 4 basic parts as input value, weight, bias and activation function. As can be seen, the innovation that perceptron adds to neural networks is that the bias value is added to each process as shown in \ref{eqn:perc}.
 
-As was the case when neural networks were first launched, the perceptron could not achieve the expected success due to technical limitations. There are 2 types of Perceptron models which are called single-layered perceptron model and multi-layered perceptron model. It contains a feedforward network within the single-layer perceptron model. It is the simplest neural network that can be implemented. An illustration of a Feed-Forward network stucture is shown in \ref{fig:feed-forwardl}
+As was the case when neural networks were first launched, the perceptron could not achieve the expected success due to technical limitations. There are 2 types of Perceptron models which are called single-layered perceptron model and multi-layered perceptron model. It contains a feedforward network within the single-layer perceptron model. It is the simplest neural network that can be implemented. An illustration of a Feed-Forward network structure is shown in \ref{fig:feed-forwardl}
 
 \begin{figure}[h!]
     \centering
@@ -129,13 +129,13 @@ Pooling layers, generally following the convolutional layers, reduce the size of
     \label{fig:pooling}
 \end{figure}
 
-Flattening layer is the layer that makes the tensors in CNN structures vectorized in order to use the fully connected layers which commonly used in MLP structures. This layer serialized the incoming tensor and fills all the values to the neurons in a layer.
+Flattening layer is the layer that makes the tensors in CNN structures vectorized in order to use the fully connected layers which commonly used in MLP structures. This layer serialized the incoming tensor and fills all the values to the neurons in layer.
 
 There are two CNN architectures commonly used for deep inpainting studies. First one is the encoder-decoder structures, and the other one is a derivation of the former one which called as autoencoder structure. These architectures performs well on many computer vision task and also shows promising results on other inverse problems in computer vision such as inpainting, denoising, and super-resolution. Moreover, this structures can work on different deep learning problems such as sentiment analysis, image captioning, and translation. For example, Google Translate is built upon an encoder-decoder structure \cite{google_translate}.
 
 \subsection{Encoder-Decoder Networks}
 
-To explain briefly, encoder network can be in fully connected structure or convolutional structure or even as recurrent neural network (RNN) structure \cite{rnn_seq2seq}. An encoder network will take input and output a feature map which is simply a vector or more generally a tensor. This feature vector holds the necessary and important feature information about the input. The decoder network is usually the same network architecture as a encoder but in reverse. It takes a feature vector and tries to generate the input as closest as possible. Encoder-decoder network consist of two network parts which are a encoder and a decoder. Input processed through these structures. These network structures can be used in various areas such as language translation \cite{google_translate} and in computer vision applications as generative models. Mentioned model architecture can be seen in figure \ref{fig:encoder_decoder}.
+To explain briefly, encoder network can be in fully connected structure or convolutional structure or even as recurrent neural network (RNN) structure \cite{rnn_seq2seq}. An encoder network will take input and output a feature map which is simply a vector or more generally a tensor. This feature vector holds the necessary and important feature information about the input. The decoder network is usually the same network architecture as an encoder but in reverse. It takes a feature vector and tries to generate the input as closest as possible. Encoder-decoder network consist of two network parts which are an encoder and a decoder. Input processed through these structures. These network structures can be used in various areas such as language translation \cite{google_translate} and in computer vision applications as generative models. Mentioned model architecture can be seen in figure \ref{fig:encoder_decoder}.
 
 \begin{figure}[h!]
     \centering
@@ -156,7 +156,7 @@ Autoencoder is a structure that aims to establish a connection between input and
     \label{fig:autoencoder_vs_pca}
 \end{figure}
 
-By training the autoencoders it becomes possible to ignore the noise in data. For instance, it can be used in anomaly detection application over any signal \cite{anomaly_detection1} \cite{anomaly_detection2}. Another example application would be to create a noiseless image from a noisy image by obtaining the most important features while ignoring the noise \cite{denoising}. This application is called denoising which is a popular inverse problems in computer vision studies. Learning in autoencoder structures is actually possible with an encoder that can best describe the input image and a decoder that can give an output as similar as possible to the original image using this description from former encoder structure. A convolutional autoencoder network structure designed for the image classification application is shown in the figure \ref{fig:mnist_autoencoder}.
+By training the autoencoders it becomes possible to ignore the noise in data. For instance, it can be used in anomaly detection application over any signal \cite{anomaly_detection1} \cite{anomaly_detection2}. Another example application would be to create a noiseless image from a noisy image by obtaining the most important features while ignoring the noise \cite{denoising}. This application is called denoising which is a popular inverse problems in computer vision studies. Learning with autoencoder structures is actually possible with an encoder that can best describe the input image and a decoder that can give an output as similar as possible to the original image using this description from former encoder structure. A convolutional autoencoder network structure designed for the image classification application is shown in the figure \ref{fig:mnist_autoencoder}.
 
 \begin{figure}[h!]
     \centering
@@ -172,7 +172,7 @@ As time passed, many different machine learning methods and ideas emerged. As ex
 
 As machine learning methods and specifically neural network and deep learning methods began to be used more frequently and the number of areas in which they were used increased, the methods used continued to differ and develop. One of these ideas developed is Generative Adversarial Networks.
 
-It is possible to categorize methods of machine learning under 2 main categories, which are supervised and unsupervised learning. Even, it is possible to obtain successful results with supervised learning labeling huge amount of data is not economical and highly time consuming or in some cases it is not possible. Basically, the basic idea behind the emergence of the generative models is that there is no possible data that can be compared with output, or rather, the desired output does not have a correct answer to compare. Objectives of generator an discriminator models is given in figure \ref{fig:gan1}.
+It is possible to categorize methods of machine learning under 2 main categories, which are supervised and unsupervised learning. Even, it is possible to obtain successful results with supervised learning labeling huge amount of data is not economical and highly time consuming or in some cases it is not possible. Basically, the basic idea behind the emergence of the generative models is that there is no possible data that can be compared with output, or rather, the desired output does not have a correct answer to compare. Objectives of generator and discriminator models is given in figure \ref{fig:gan1}.
 
 \begin{figure}[h!]
     \centering
@@ -217,7 +217,7 @@ To explain, D and G play minimax with the function V (G, D) given in equation \r
     min_Gmax_D V(D,G)= E_{x~P_{data(x)}}[logD(x)]+E_{z~P_{z}(Z)}[log(1-D(G(z)))]
 \end{equation}
 
-When implemented, it can be seen that Equation \ref{eqn:minmax} could not give sufficient results in the first steps of training. As can be guesse, at the beginning of the training phase, the Discriminator network could easily distinguish generated data from the real data which causes log(1-D(G(Z)) to saturate. In this case, it is reasonable to train to minimize log(D(G(Z)) rather than train to minimize log(1-D(G(Z)).
+When implemented, it can be seen that Equation \ref{eqn:minmax} could not give sufficient results in the first steps of training. As can be guessed, at the beginning of the training phase, the Discriminator network could easily distinguish generated data from the real data which causes log(1-D(G(Z)) to saturate. In this case, it is reasonable to train to minimize log(D(G(Z)) rather than train to minimize log(1-D(G(Z)).
 
 To exemplify the success of GAN structures, examples of faces produced by this method in different years are shown in Figure \ref{fig:gan-success}.
 
@@ -233,7 +233,7 @@ To exemplify the success of GAN structures, examples of faces produced by this m
 
 Deep Convolutional Generative Adversarial Network \cite{dcgan}, shortly DCGAN, is a frequently used addition to GAN structures. The generator and discriminator used in this structure are in deep convolutional structure and thus a more stable training is performed. With this work, it is aimed to use the advantages of CNNs.
 
-DCGAN is an important development in terms of having more successful and high quality generators. At the same time, this structure has helped the emergence of many different types of GAN structures. Overall stcuture of DCGAN is illustrated in figure \ref{fig:dcgan}.
+DCGAN is an important development in terms of having more successful and high quality generators. At the same time, this structure has helped the emergence of many different types of GAN structures. Overall structure of DCGAN is illustrated in figure \ref{fig:dcgan}.
 
 \begin{figure}[h!]
     \centering
@@ -246,7 +246,7 @@ DCGAN is an important development in terms of having more successful and high qu
 
 As GAN applications become widespread, different types of GAN structures have started to emerge. One of them is the Wasserstein GAN structure. This GAN structure both increases the stability of the GAN and provides the use of a loss function better related to the quality of the images produced.
 
-WGAN model is a study presented by Arjovsky et al\cite{wgan}, that adds additional features to the GAN structure. As mentioned earlier, images in the WGAN structure, receive a score that expresses the reality of the image rather than simply being classified as real or fake by the discriminator.
+WGAN model is a study presented by Arjovsky et al. \cite{wgan}, that adds additional features to the GAN structure. As mentioned earlier, images in the WGAN structure, receive a score that expresses the reality of the image rather than simply being classified as real or fake by the discriminator.
 
 Fundamentally plans to be a solution to Discriminator and Generator balancing, one of the main problems of GAN structures, with the new Earth Move distance using WGAN. Earth-Mover distance is shown in equation \ref{eqn:wgan}.
 

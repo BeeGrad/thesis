@@ -1,10 +1,10 @@
-\chapter{TRADITIONAL METHODS}\label{traditional_methods}
+\chapter{TRADITIONAL INPAINTING METHODS}\label{traditional_methods}
 
-There are many different methods used for image inpainting. Each of these methods has mathematical foundations in itself. These methods are categorized according to methods they use to get the desired output\cite{exemplerinpainting}. The first of these methods are the methods called traditional methods that try to correct the missing part on the main title picture only with the features in the picture to be corrected.
+There are many different methods used for image inpainting. Each of these methods has mathematical foundations in itself. These methods are categorized according to the algorithms they use to get the desired output\cite{exemplerinpainting}. The first of these methods are the methods called traditional methods that try to correct the missing part on the main title picture only with the features in the picture to be corrected.
 
 Machine learning methods, which have been used frequently in many different problems due to increased processing power and broad access to large data sets, have also started to be used for image inpainting problems. These ideas, which will be explained under the title of traditional methods, also formed the basis for machine learning and deep learning methods used for inpainting. The methods explained under this title were used in different deep learning methods, which will be examined later.
 
-It would be more accurate to examine traditional methods mainly as exemplar-based and diffusion based. Although Exemplar-based methods are divided into pixel-based and patch-based, patch-based methods will be examined mainly in exemplar-based methods, since there are more studies relating to patch-based methods and they give better results. \cite{trad1} and \cite{trad2} are some of the traditional method example works.
+It would be more accurate to examine traditional methods mainly as exemplar-based and diffusion-based. Although Exemplar-based methods are divided into pixel-based and patch-based, patch-based methods will be examined mainly in exemplar-based methods, since there are more studies relating to patch-based methods and they give better results. \cite{trad1} and \cite{trad2} are some of the traditional method example works.
 
 As can be understood from their names, patch-based methods try to fill the missing region in the picture with the information obtained from different parts of the picture. Diffusion-based methods try to fill the region by diffusing surrounding pixels from its boundary \cite{navier_stokes_inpainting}, \cite{telea}.
 
@@ -12,7 +12,7 @@ Traditional methods are methods that do not require training. For this reason, i
 
 \section{Patch-based Methods}
 
-Patch-based image inpainting consists of methods that use the undamaged regions in the image to create the region to be filled. With this approach it is aimed to have the highest possible patch similarity level\cite{inpaintingoverview}.
+Patch-based image inpainting consists of methods that use the undamaged regions in the image to create the region to be filled. With this approach, it is aimed to have the highest possible patch similarity level\cite{inpaintingoverview}.
 
 In order to implement this method, an algorithm is needed on how to transfer the obtained regions to the areas planned to be filled. Another important point in this method is the selection of the algorithm that will compare the regions in different parts of the picture with the regions desired to be created \cite{patchmatch}.
 
@@ -20,7 +20,7 @@ While patch-based methods work well, they assume that the information in the mis
 
 \subsection{Patch-based Texture Synthesis}
 
-In this method by Zhou et al \cite{patch_based_tex_synthesis}, it is aimed to fill the desired area by creating textures with patch-based algorithms for Image inpainting method. While implementing this targeted method, a road starting from the rough, proceeding in detail is aimed. While performing the filling process, targets and constraints were created in order to ensure the integrity of the newly created region with the rest of the picture.
+In this method by Zhou et al. \cite{patch_based_tex_synthesis}, it is aimed to fill the desired area by creating textures with patch-based algorithms for Image inpainting method. While implementing this targeted method, a road starting from the rough, proceeding in detail is aimed. While performing the filling process, targets and constraints were created in order to ensure the integrity of the newly created region with the rest of the picture.
 
 In this study, a more efficient inpainting study has been achieved by basically using the successive elimination algorithm and based on the previously used methods.
 
@@ -97,7 +97,7 @@ Two important steps during the implementation of the algorithm are searching and
     %sYanlislik olabilir mi kontrol et bir ara
 \end{equation}
 
-In the Voting part, an algorithm is used in which every pixel in the patch is included, and the resulting output takes its form in eq \ref{eqn:imagemelding2}. In figure \ref{fig:inpainting-image-melding}, Inpainting example with image melding method is given.
+In the voting part, an algorithm is used in which every pixel in the patch is included, and the resulting output takes its form in eq \ref{eqn:imagemelding2}. In figure \ref{fig:inpainting-image-melding}, Inpainting example with image melding method is given.
 
 \begin{figure}[h]
     \centering
@@ -111,7 +111,7 @@ In the Voting part, an algorithm is used in which every pixel in the patch is in
 
 This method basically fills missing regions or unwanted objects in an image by diffusing neighboring pixel information. Diffusion process uses partial differential equations. Inpainting is not the only use of such diffusion-based methods. In addition, these type of methods are available in areas like image compression. Diffusion-based image inpainting can be used to remove undesirable objects in an image or to repair damaged parts of it. However, as a downside, these methods can leave artifacts after inpainting process such as local variance difference and noise pattern \cite{diffusion_based_artifacts}. In figure \ref{fig:diffusion_based_inpainting} an example of diffusion-based inpainting can be seen. The black region in \ref{fig:diffusion_based_inpainting}.a is the unknown region and the \ref{fig:diffusion_based_inpainting}.b shows the inpainting result, the region surrounded by the dashed curve is recovered by inpainting.
 
-Basically, the inpainting process is nothing more than restoring the missing pixel information in an image and there are some common assumptions that most of the images have commonly share. In this way of thinking, Navier-Stokes based method \cite{navier_stokes} was introduced. Navier-Stokes equations known in the area of mechanics, especially fluid mechanics. This inpainting method emerged by combining ideas in the field of classical fluid dynamics with the help of partial equations and remains one of the most popular traditional methods to this day. The assumption that the edges in an image are contunious is used. The authors designed this inpainting method by considering the color information of the surrounding pixels and the this continuity constraint.
+Basically, the inpainting process is nothing more than restoring the missing pixel information in an image and there are some common assumptions that most of the images have commonly share. In this way of thinking, Navier-Stokes based method \cite{navier_stokes} was introduced. Navier-Stokes equations known in the area of mechanics, especially fluid mechanics. This inpainting method emerged by combining ideas in the field of classical fluid dynamics with the help of partial equations and remains one of the most popular traditional methods to this day. The assumption that the edges in an image are continuous is used. The authors designed this inpainting method by considering the color information of the surrounding pixels and the this continuity constraint.
 
 \begin{figure}[h]
     \centering
